@@ -28,8 +28,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link to="/" className="font-heading font-black text-lg uppercase tracking-tight text-foreground">
-            <span className="text-primary">PANCAR</span><span className="text-yellow-accent">TIVISTE !</span>
+          <Link to="/" className="font-heading text-lg uppercase tracking-tight text-foreground">
+            <span className="text-foreground">PANCARTIVISTE</span><span className="text-primary">!</span>
           </Link>
 
           {/* Desktop nav */}

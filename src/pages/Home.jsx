@@ -78,7 +78,7 @@ export default function Home() {
             <Button asChild size="lg" className="font-heading font-bold uppercase tracking-widest bg-primary text-white hover:bg-primary/90">
               <Link to="/boutique">Voir tous les produits</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-mono font-medium uppercase tracking-widest border-background/30 text-background hover:bg-background/10">
+            <Button asChild size="lg" variant="outline" className="font-mono font-medium uppercase tracking-widest border-background/30 text-foreground hover:bg-background/10">
               <a href="https://pancartiviste.fr" target="_blank" rel="noreferrer">pancartiviste.fr ↗</a>
             </Button>
           </div>
