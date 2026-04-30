@@ -1,5 +1,6 @@
 import ProductCard from './ProductCard';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useLanguage } from '@/lib/LanguageContext';
 
 function ProductCardSkeleton() {
   return (
@@ -12,6 +13,7 @@ function ProductCardSkeleton() {
 }
 
 export default function ProductGrid({ products, loading }) {
+  const { t } = useLanguage();
   if (loading) {
     return (
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
@@ -23,7 +25,7 @@ export default function ProductGrid({ products, loading }) {
   if (!products?.length) {
     return (
       <div className="text-center py-20 text-muted-foreground">
-        Aucun produit trouvé dans cette collection.
+        {t.shop.noProductsInCollection}
       </div>
     );
   }

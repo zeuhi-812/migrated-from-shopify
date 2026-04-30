@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import ProductCard from '@/components/shop/ProductCard';
+import { useLanguage } from '@/lib/LanguageContext';
 
 const collectionSections = [
   {
@@ -57,6 +58,7 @@ const collectionSections = [
 ];
 
 export default function Home() {
+  const { t } = useLanguage();
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['products-featured'],
     queryFn: () => base44.entities.Product.list('-createdAt', 8),
@@ -72,11 +74,11 @@ export default function Home() {
             PANCARTIVISTE !
           </h1>
           <p className="text-sm font-mono text-background/70 max-w-2xl mb-8 leading-relaxed">
-            Des créations militantes pour enchanter le quotidien. Mugs et posters imprimés à la demande — chaque achat soutient une artiste et un mouvement.
+            {t.home.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button asChild size="lg" className="uppercase tracking-widest bg-primary text-white hover:bg-primary/90">
-              <Link to="/boutique">Voir tous les produits</Link>
+              <Link to="/boutique">{t.home.viewAll}</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="uppercase tracking-widest">
               <a href="https://pancartiviste.fr" target="_blank" rel="noreferrer">pancartiviste.fr ↗</a>
@@ -87,8 +89,8 @@ export default function Home() {
 
       {/* Collection grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="font-heading font-black uppercase text-4xl text-foreground mb-2">Nos Collections</h2>
-        <p className="text-xs font-mono text-muted-foreground mb-10 uppercase tracking-widest">Explorez nos séries militantes et artistiques</p>
+        <h2 className="font-heading font-black uppercase text-4xl text-foreground mb-2">{t.home.ourCollections}</h2>
+        <p className="text-xs font-mono text-muted-foreground mb-10 uppercase tracking-widest">{t.home.exploreCollections}</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {collectionSections.map(col => (
             <Link
@@ -113,9 +115,9 @@ export default function Home() {
       {/* Featured products */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-20">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-heading font-black uppercase text-4xl text-foreground">Nouveautés</h2>
+          <h2 className="font-heading font-black uppercase text-4xl text-foreground">{t.home.newProducts}</h2>
           <Link to="/boutique" className="flex items-center gap-1 text-sm text-accent font-medium hover:gap-2 transition-all">
-            Tout voir <ArrowRight className="w-4 h-4" />
+            {t.home.seeAll} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
         {isLoading ? (
@@ -140,15 +142,15 @@ export default function Home() {
       {/* Why buy here */}
       <section className="bg-muted border-t border-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h2 className="font-heading font-black uppercase text-4xl text-foreground mb-6">Pourquoi acheter ici ?</h2>
+          <h2 className="font-heading font-black uppercase text-4xl text-foreground mb-6">{t.home.whyBuyHere}</h2>
           <p className="text-muted-foreground text-base leading-relaxed mb-4">
-            Acheter ici, ce n'est pas juste consommer. <strong className="text-foreground">C'est participer.</strong>
+            {t.home.notJustConsume}
           </p>
           <p className="text-muted-foreground text-base leading-relaxed mb-4">
-            Chaque création que vous choisissez porte une idée, un message, une énergie. En achetant, vous permettez à une artiste de vivre de son art, tout en soutenant le projet open source <a href="https://pancartiviste.fr" className="text-accent underline" target="_blank" rel="noreferrer">pancartiviste.com</a>.
+            {t.home.eachCreation} <a href="https://pancartiviste.fr" className="text-accent underline" target="_blank" rel="noreferrer">pancartiviste.fr</a>.
           </p>
           <p className="text-muted-foreground text-base leading-relaxed">
-            En achetant, vous faites circuler plus qu'un objet : <strong className="text-foreground">vous faites circuler une voix, une présence, une force collective.</strong>
+            {t.home.circulate} <strong className="text-foreground">{t.home.youCirculateVoice}</strong>
           </p>
         </div>
       </section>

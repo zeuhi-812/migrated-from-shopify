@@ -60,6 +60,10 @@ export default function Navbar() {
               )}
             </div>
 
+            <Link to="/a-propos" className={linkClass('/a-propos')}>
+              {t.nav.apropos}
+            </Link>
+
             {/* Language toggle */}
             <button
               onClick={toggleLanguage}
@@ -67,10 +71,6 @@ export default function Navbar() {
             >
               {language === 'fr' ? 'EN' : 'FR'}
             </button>
-
-            <Link to="/a-propos" className={linkClass('/a-propos')}>
-              {t.nav.apropos}
-            </Link>
           </div>
 
           {/* Mobile toggle */}
@@ -96,13 +96,13 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
+          <Link to="/a-propos" className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-foreground/60" onClick={() => setMobileOpen(false)}>{t.nav.apropos}</Link>
           <button
             onClick={() => { toggleLanguage(); setMobileOpen(false); }}
             className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-foreground/60 w-full text-left"
           >
             {language === 'fr' ? 'EN' : 'FR'}
           </button>
-          <Link to="/a-propos" className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-foreground/60" onClick={() => setMobileOpen(false)}>{t.nav.apropos}</Link>
         </div>
       )}
     </nav>

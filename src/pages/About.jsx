@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function About() {
+  const { t } = useLanguage();
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="font-heading font-black text-4xl mb-8 uppercase">À propos de Zeu Hi</h1>
+      <h1 className="font-heading font-black text-4xl mb-8 uppercase">{t.about.title}</h1>
 
       <div className="prose prose-lg max-w-none space-y-6 text-foreground/80 leading-relaxed">
         <div className="flex justify-center mb-8">

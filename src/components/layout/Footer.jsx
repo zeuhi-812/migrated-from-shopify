@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
 
   return (
     <footer className="border-t border-border bg-accent text-accent-foreground">
@@ -13,11 +15,11 @@ export default function Footer() {
               Pancartiviste<span className="text-primary"> !</span>
             </h3>
             <p className="font-mono text-xs text-muted-foreground leading-relaxed">
-              L'Open-Source militante de Zeu Hi. Des visuels pour porter des messages, nourrir l'espoir, et faire bouger les lignes.
+              {t.footer.tagline}
             </p>
           </div>
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-widest mb-3 text-muted-foreground">Collections</h4>
+            <h4 className="font-mono text-xs uppercase tracking-widest mb-3 text-muted-foreground">{t.footer.collections}</h4>
             <div className="space-y-2">
               <Link to="/collection/mugs-le-coeur-manifeste" className="block font-mono text-sm hover:text-primary transition-colors">Mugs "Cœur de Lutte"</Link>
               <Link to="/collection/posters-coeur-de-lutte" className="block font-mono text-sm hover:text-primary transition-colors">Posters "Cœur de Lutte"</Link>
@@ -27,7 +29,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-widest mb-3 text-muted-foreground">Liens</h4>
+            <h4 className="font-mono text-xs uppercase tracking-widest mb-3 text-muted-foreground">{t.footer.links}</h4>
             <p className="font-mono text-sm leading-relaxed">
               <a href="https://pancartiviste.fr" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">pancartiviste.fr</a><br/>
               <a href="https://www.patreon.com/c/u49061662" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">Patreon</a>
@@ -35,7 +37,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-6 border-t border-border flex items-center justify-center gap-1 font-mono text-xs text-muted-foreground">
-          Fait avec <Heart className="w-3 h-3 text-primary fill-primary" /> par Zeu Hi — La ReLovution est en marche !
+          {t.footer.madeWith} <Heart className="w-3 h-3 text-primary fill-primary" /> {t.footer.byZeuHi}
         </div>
       </div>
     </footer>

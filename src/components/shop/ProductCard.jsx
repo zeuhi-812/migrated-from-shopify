@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function ProductCard({ product }) {
+  const { t } = useLanguage();
   const [hovered, setHovered] = useState(false);
   const images = product.images || [];
   const firstImage = images[0]?.url;
@@ -34,7 +36,7 @@ export default function ProductCard({ product }) {
           </>
         ) : (
           <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-            Pas d'image
+            {t.product.noImage}
           </div>
         )}
         <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />

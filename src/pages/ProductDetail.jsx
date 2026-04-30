@@ -5,9 +5,11 @@ import { useQuery } from '@tanstack/react-query';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function ProductDetail() {
   const { handle } = useParams();
+  const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState(0);
 
@@ -41,8 +43,8 @@ export default function ProductDetail() {
   if (!d) {
     return (
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <h2 className="font-display text-2xl font-bold mb-4">Produit introuvable</h2>
-        <Link to="/boutique" className="text-primary underline">Retour à la boutique</Link>
+        <h2 className="font-display text-2xl font-bold mb-4">{t.product.noProductFound}</h2>
+        <Link to="/boutique" className="text-primary underline">{t.product.backToBoutique}</Link>
       </div>
     );
   }
@@ -59,9 +61,9 @@ export default function ProductDetail() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1 text-sm text-muted-foreground mb-6 flex-wrap">
-        <Link to="/" className="hover:text-primary transition-colors">Accueil</Link>
+        <Link to="/" className="hover:text-primary transition-colors">{t.breadcrumb.home}</Link>
         <ChevronRight className="w-3 h-3" />
-        <Link to="/boutique" className="hover:text-primary transition-colors">Boutique</Link>
+        <Link to="/boutique" className="hover:text-primary transition-colors">{t.breadcrumb.shop}</Link>
         <ChevronRight className="w-3 h-3" />
         <span className="text-foreground line-clamp-1">{d.title}</span>
       </nav>
@@ -78,7 +80,7 @@ export default function ProductDetail() {
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                Pas d'image
+                {t.product.noImage}
               </div>
             )}
             {images.length > 1 && (
@@ -119,7 +121,7 @@ export default function ProductDetail() {
           {/* Variants */}
           {variants.length > 1 && (
             <div>
-              <p className="text-sm font-medium text-foreground mb-2">Options :</p>
+              <p className="text-sm font-medium text-foreground mb-2">{t.product.optionsLabel}</p>
               <div className="flex flex-wrap gap-2">
                 {variants.map((v, i) => (
                   <button
@@ -141,14 +143,14 @@ export default function ProductDetail() {
             rel="noreferrer"
           >
             <Button size="lg" className="w-full font-semibold">
-              Commander sur Shopify ↗
+              {t.product.orderShopify}
             </Button>
           </a>
 
           {/* Description */}
           {d.descriptionHtml && (
             <div>
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground mb-3">Description</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground mb-3">{t.product.description}</h2>
               <div
                 className="text-sm text-muted-foreground leading-relaxed prose prose-sm max-w-none"
                 dangerouslySetInnerHTML={{ __html: d.descriptionHtml }}

@@ -4,10 +4,12 @@ import { useQuery } from '@tanstack/react-query';
 import ProductGrid from '@/components/shop/ProductGrid';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 const PAGE_SIZE = 24;
 
 export default function Boutique() {
+  const { t } = useLanguage();
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
 
@@ -37,15 +39,15 @@ export default function Boutique() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div className="mb-8">
-        <h1 className="font-heading font-black uppercase text-5xl text-primary mb-2">Tous les produits</h1>
-        <p className="text-muted-foreground">{products.length} produits</p>
+        <h1 className="font-heading font-black uppercase text-5xl text-primary mb-2">{t.shop.allProducts}</h1>
+        <p className="text-muted-foreground">{products.length} {t.shop.productsCount}</p>
       </div>
 
       {/* Search */}
       <div className="relative max-w-sm mb-8">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <Input
-          placeholder="Rechercher..."
+          placeholder={t.shop.searchPlaceholder}
           value={search}
           onChange={e => handleSearch(e.target.value)}
           className="pl-9"
@@ -62,7 +64,7 @@ export default function Boutique() {
             disabled={page === 1}
             className="px-4 py-2 text-sm rounded-md border border-border hover:bg-muted disabled:opacity-40 transition-colors"
           >
-            ← Précédent
+            {t.pagination.previous}
           </button>
           <span className="text-sm text-muted-foreground px-2">
             Page {page} / {totalPages}
@@ -72,7 +74,7 @@ export default function Boutique() {
             disabled={page === totalPages}
             className="px-4 py-2 text-sm rounded-md border border-border hover:bg-muted disabled:opacity-40 transition-colors"
           >
-            Suivant →
+            {t.pagination.next}
           </button>
         </div>
       )}

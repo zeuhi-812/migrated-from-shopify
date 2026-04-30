@@ -4,6 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import ProductGrid from '@/components/shop/ProductGrid';
 import { ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 const PAGE_SIZE = 24;
 
@@ -54,6 +55,7 @@ const COLLECTION_LABELS = {
 
 export default function CollectionPage() {
   const { handle } = useParams();
+  const { t } = useLanguage();
   const [page, setPage] = useState(1);
 
   const { data: allProducts = [], isLoading: productsLoading } = useQuery({
@@ -100,9 +102,9 @@ export default function CollectionPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1 text-sm text-muted-foreground mb-6">
-        <Link to="/" className="hover:text-primary transition-colors">Accueil</Link>
+        <Link to="/" className="hover:text-primary transition-colors">{t.breadcrumb.home}</Link>
         <ChevronRight className="w-3 h-3" />
-        <Link to="/boutique" className="hover:text-primary transition-colors">Boutique</Link>
+        <Link to="/boutique" className="hover:text-primary transition-colors">{t.breadcrumb.shop}</Link>
         <ChevronRight className="w-3 h-3" />
         <span className="text-foreground">{label}</span>
       </nav>
@@ -111,14 +113,14 @@ export default function CollectionPage() {
         <h1 className="font-heading font-black uppercase text-5xl text-primary mb-2">{label}</h1>
         {collectionData?.descriptionHtml && (
           <details className="mt-2">
-            <summary className="text-sm text-primary cursor-pointer hover:underline">Pourquoi acheter ici ?</summary>
+            <summary className="text-sm text-primary cursor-pointer hover:underline">{t.home.whyBuyHere}</summary>
             <div
               className="mt-3 text-sm text-muted-foreground leading-relaxed prose prose-sm max-w-none"
               dangerouslySetInnerHTML={{ __html: collectionData.descriptionHtml }}
             />
           </details>
         )}
-        {!productsLoading && <p className="text-muted-foreground mt-2">{filtered.length} produits</p>}
+        {!productsLoading && <p className="text-muted-foreground mt-2">{filtered.length} {t.shop.productsCount}</p>}
       </div>
 
       <ProductGrid products={paginated} loading={productsLoading} />
@@ -130,7 +132,7 @@ export default function CollectionPage() {
             disabled={page === 1}
             className="px-4 py-2 text-sm rounded-md border border-border hover:bg-muted disabled:opacity-40 transition-colors"
           >
-            ← Précédent
+            {t.pagination.previous}
           </button>
           <span className="text-sm text-muted-foreground px-2">Page {page} / {totalPages}</span>
           <button
@@ -138,7 +140,7 @@ export default function CollectionPage() {
             disabled={page === totalPages}
             className="px-4 py-2 text-sm rounded-md border border-border hover:bg-muted disabled:opacity-40 transition-colors"
           >
-            Suivant →
+            {t.pagination.next}
           </button>
         </div>
       )}
