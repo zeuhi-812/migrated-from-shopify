@@ -20,15 +20,15 @@ export default function Navbar() {
 
   const linkClass = (path) =>
     `text-xs font-heading font-bold uppercase tracking-widest transition-colors ${
-      location.pathname === path ? 'text-accent' : 'text-foreground/80 hover:text-foreground'
+      location.pathname === path ? 'text-accent' : 'text-background/80 hover:text-background'
     }`;
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#e8e8e8] border-b border-black/10">
+    <nav className="sticky top-0 z-50 bg-foreground border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link to="/" className="font-heading font-black text-lg uppercase tracking-tight text-foreground">
+          <Link to="/" className="font-heading font-black text-lg uppercase tracking-tight text-background">
             PANCARTIVISTE !
           </Link>
 
@@ -40,16 +40,16 @@ export default function Navbar() {
 
             {/* Shop dropdown */}
             <div className="relative" onMouseEnter={() => setShopOpen(true)} onMouseLeave={() => setShopOpen(false)}>
-              <button className="text-xs font-heading font-bold uppercase tracking-widest text-foreground/80 hover:text-foreground transition-colors">
+              <button className="text-xs font-heading font-bold uppercase tracking-widest text-background/80 hover:text-background transition-colors">
                 Collections
               </button>
               {shopOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-64 bg-[#e8e8e8] border border-black/15 shadow-lg py-2 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-64 bg-foreground border border-white/15 shadow-lg py-2 z-50">
                   {collections.map(c => (
                     <Link
                       key={c.handle}
                       to={`/collection/${c.handle}`}
-                      className="block px-4 py-2 text-xs font-mono text-foreground/70 hover:bg-black/10 hover:text-foreground transition-colors"
+                      className="block px-4 py-2 text-xs font-mono text-background/70 hover:bg-white/10 hover:text-background transition-colors"
                     >
                       {c.label}
                     </Link>
@@ -64,7 +64,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile toggle */}
-          <button className="md:hidden p-2 text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="md:hidden p-2 text-background" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
@@ -72,21 +72,21 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-black/10 bg-[#e8e8e8] px-4 pb-4 space-y-1">
+        <div className="md:hidden border-t border-white/10 bg-foreground px-4 pb-4 space-y-1">
           <Link to="/boutique" className="block py-2 text-xs font-heading font-bold uppercase tracking-widest text-accent" onClick={() => setMobileOpen(false)}>Boutique</Link>
-          <div className="pl-2 space-y-1 border-l-2 border-foreground/20 ml-1">
+          <div className="pl-2 space-y-1 border-l-2 border-background/20 ml-1">
             {collections.map(c => (
               <Link
                 key={c.handle}
                 to={`/collection/${c.handle}`}
-                className="block py-1.5 text-xs font-mono text-foreground/70"
+                className="block py-1.5 text-xs font-mono text-background/70"
                 onClick={() => setMobileOpen(false)}
               >
                 {c.label}
               </Link>
             ))}
           </div>
-          <Link to="/a-propos" className="block py-2 text-xs font-heading font-bold uppercase tracking-widest text-foreground/80" onClick={() => setMobileOpen(false)}>À propos</Link>
+          <Link to="/a-propos" className="block py-2 text-xs font-heading font-bold uppercase tracking-widest text-background/80" onClick={() => setMobileOpen(false)}>À propos</Link>
         </div>
       )}
     </nav>

@@ -65,20 +65,20 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-background text-foreground overflow-hidden border-b border-border">
+      <section className="relative bg-foreground text-background overflow-hidden border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-start">
           <p className="text-xs font-mono text-accent uppercase tracking-widest mb-4">Boutique</p>
-          <h1 className="font-heading font-black uppercase text-5xl md:text-8xl text-primary mb-6 leading-none">
-            Objets de lutte
+          <h1 className="font-heading font-black uppercase text-5xl md:text-8xl text-background mb-6 leading-none">
+            Pancartiviste !
           </h1>
-          <p className="text-sm font-mono text-muted-foreground max-w-md mb-8 leading-relaxed">
+          <p className="text-sm font-mono text-background/70 max-w-md mb-8 leading-relaxed">
             Des créations militantes pour enchanter le quotidien. Mugs et posters imprimés à la demande — chaque achat soutient une artiste et un mouvement.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button asChild size="lg" className="font-heading font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button asChild size="lg" className="font-heading font-bold uppercase tracking-widest bg-accent text-white hover:bg-accent/90">
               <Link to="/boutique">Voir tous les produits</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-heading font-bold uppercase tracking-widest border-border text-foreground hover:bg-muted">
+            <Button asChild size="lg" variant="outline" className="font-heading font-bold uppercase tracking-widest border-background/30 text-background hover:bg-background/10">
               <a href="https://pancartiviste.fr" target="_blank" rel="noreferrer">pancartiviste.fr ↗</a>
             </Button>
           </div>
@@ -101,7 +101,7 @@ export default function Home() {
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20" />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-3">
                 <p className="text-white text-xs font-semibold leading-tight drop-shadow">{col.title}</p>
               </div>
@@ -114,7 +114,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-20">
         <div className="flex items-center justify-between mb-8">
           <h2 className="font-heading font-black uppercase text-4xl text-foreground">Nouveautés</h2>
-          <Link to="/boutique" className="flex items-center gap-1 text-sm text-primary font-medium hover:gap-2 transition-all">
+          <Link to="/boutique" className="flex items-center gap-1 text-sm text-accent font-medium hover:gap-2 transition-all">
             Tout voir <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -138,14 +138,14 @@ export default function Home() {
       </section>
 
       {/* Why buy here */}
-      <section className="bg-card border-t border-border">
+      <section className="bg-muted border-t border-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h2 className="font-heading font-black uppercase text-4xl text-primary mb-6">Pourquoi acheter ici ?</h2>
+          <h2 className="font-heading font-black uppercase text-4xl text-foreground mb-6">Pourquoi acheter ici ?</h2>
           <p className="text-muted-foreground text-base leading-relaxed mb-4">
             Acheter ici, ce n'est pas juste consommer. <strong className="text-foreground">C'est participer.</strong>
           </p>
           <p className="text-muted-foreground text-base leading-relaxed mb-4">
-            Chaque création que vous choisissez porte une idée, un message, une énergie. En achetant, vous permettez à une artiste de vivre de son art, tout en soutenant le projet open source <a href="https://pancartiviste.fr" className="text-primary underline" target="_blank" rel="noreferrer">pancartiviste.com</a>.
+            Chaque création que vous choisissez porte une idée, un message, une énergie. En achetant, vous permettez à une artiste de vivre de son art, tout en soutenant le projet open source <a href="https://pancartiviste.fr" className="text-accent underline" target="_blank" rel="noreferrer">pancartiviste.com</a>.
           </p>
           <p className="text-muted-foreground text-base leading-relaxed">
             En achetant, vous faites circuler plus qu'un objet : <strong className="text-foreground">vous faites circuler une voix, une présence, une force collective.</strong>
