@@ -1,0 +1,93 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Product title"
+    },
+    "handle": {
+      "type": "string",
+      "description": "URL handle"
+    },
+    "descriptionHtml": {
+      "type": "string",
+      "description": "HTML description"
+    },
+    "productType": {
+      "type": "string",
+      "description": "Product type"
+    },
+    "vendor": {
+      "type": "string",
+      "description": "Vendor name"
+    },
+    "status": {
+      "type": "string",
+      "description": "Product status"
+    },
+    "tags": {
+      "type": "string",
+      "description": "Comma-separated tags"
+    },
+    "variants": {
+      "type": "array",
+      "description": "Product variants",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "compareAtPrice": {
+            "type": "string"
+          },
+          "inventoryQuantity": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "images": {
+      "type": "array",
+      "description": "Product images",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "altText": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Created date"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Updated date"
+    },
+    "collections": {
+      "type": "array",
+      "description": "Collection handles this product belongs to",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

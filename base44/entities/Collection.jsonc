@@ -1,0 +1,26 @@
+{
+  "name": "Collection",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Collection title"
+    },
+    "handle": {
+      "type": "string",
+      "description": "URL handle"
+    },
+    "descriptionHtml": {
+      "type": "string",
+      "description": "HTML description"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Updated date"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}
