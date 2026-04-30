@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 const collections = [
   { label: 'Mugs "Cœur de Lutte"', handle: 'mugs-le-coeur-manifeste' },
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
   const location = useLocation();
+  const { language, toggleLanguage, t } = useLanguage();
 
   const linkClass = (path) =>
     `text-xs font-mono font-medium uppercase tracking-widest transition-colors ${
@@ -35,13 +37,13 @@ export default function Navbar() {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             <Link to="/boutique" className={linkClass('/boutique')}>
-              Boutique
+              {t.nav.boutique}
             </Link>
 
             {/* Shop dropdown */}
             <div className="relative" onMouseEnter={() => setShopOpen(true)} onMouseLeave={() => setShopOpen(false)}>
               <button className="text-xs font-mono font-medium uppercase tracking-widest text-foreground/60 hover:text-foreground transition-colors">
-                Collections
+                {t.nav.collections}
               </button>
               {shopOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-64 bg-background border border-border shadow-lg py-2 z-50">
@@ -58,8 +60,16 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Language toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="text-xs font-mono font-medium uppercase tracking-widest text-foreground/60 hover:text-primary transition-colors"
+            >
+              {language === 'fr' ? 'EN' : 'FR'}
+            </button>
+
             <Link to="/a-propos" className={linkClass('/a-propos')}>
-              À propos
+              {t.nav.apropos}
             </Link>
           </div>
 
@@ -73,7 +83,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden border-t border-border bg-background px-4 pb-4 space-y-1">
-          <Link to="/boutique" className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-primary" onClick={() => setMobileOpen(false)}>Boutique</Link>
+          <Link to="/boutique" className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-primary" onClick={() => setMobileOpen(false)}>{t.nav.boutique}</Link>
           <div className="pl-2 space-y-1 border-l-2 border-border ml-1">
             {collections.map(c => (
               <Link
@@ -86,7 +96,13 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          <Link to="/a-propos" className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-foreground/60" onClick={() => setMobileOpen(false)}>À propos</Link>
+          <button
+            onClick={() => { toggleLanguage(); setMobileOpen(false); }}
+            className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-foreground/60 w-full text-left"
+          >
+            {language === 'fr' ? 'EN' : 'FR'}
+          </button>
+          <Link to="/a-propos" className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-foreground/60" onClick={() => setMobileOpen(false)}>{t.nav.apropos}</Link>
         </div>
       )}
     </nav>

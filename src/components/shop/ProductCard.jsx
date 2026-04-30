@@ -39,11 +39,11 @@ export default function ProductCard({ product }) {
         )}
         <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />
       </div>
-      <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1">
+      <h3 className="text-sm font-mono text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1">
         {product.title}
       </h3>
       {formattedPrice && (
-        <p className="text-sm text-muted-foreground">{formattedPrice}</p>
+        <p className="text-sm font-mono text-muted-foreground">{formattedPrice}</p>
       )}
     </Link>
   );
