@@ -7,17 +7,39 @@ import { ChevronRight } from 'lucide-react';
 
 const PAGE_SIZE = 24;
 
-// Map collection handles to their title keywords for filtering products by title patterns
-const COLLECTION_FILTER_MAP = {
-  'mugs-le-coeur-manifeste': { type: 'mug', theme: ['cœur', 'coeur', 'lutte', 'heart', 'rallume', 'motte', 'fondu', 'tripes', 'eclaté', 'eclate'] },
-  'posters-coeur-de-lutte': { type: 'poster', theme: ['cœur', 'coeur', 'lutte', 'heart', 'rallume', 'motte', 'fondu', 'tripes', 'eclaté', 'eclate', 'résiste', 'resiste', 'flamme'] },
-  'mugs-heart-of-protest': { type: 'mug', theme: ['butter', 'pick', 'generous', 'shattered', 'relight', 'guts', 'heart'] },
-  'posters-heart-of-protest': { type: 'poster', theme: ['butter', 'pick', 'generous', 'shattered', 'relight', 'guts', 'heart', 'resists'] },
-  'vulva-la-revolution-fr': { type: 'mug', theme: ['vulva', 'vulve', 'révolution', 'revolution', 'tomate', 'tutti', 'sexy'] },
-  'posters-vulva-la-revolution-fr': { type: 'poster', theme: ['vulva', 'vulve', 'révolution', 'revolution', 'tomate', 'tutti', 'sexy'] },
-  'vulva-la-revolution': { type: 'mug', theme: ['vulva', 'revolution', 'tomato', 'tutti', 'sexy'] },
-  'posters-vulva-la-revolution': { type: 'poster', theme: ['vulva', 'revolution', 'tomato', 'tutti', 'sexy'] },
-};
+// Fallback: assign collection by handle pattern (same logic as assignCollections function)
+function getCollectionsByHandle(productHandle, productTitle) {
+  const h = (productHandle || '').toLowerCase();
+  const t = (productTitle || '').toLowerCase();
+
+  const isMug = h.includes('mug') || t.includes('mug');
+  const isPoster = h.includes('poster') || t.includes('poster');
+
+  const isVulva = h.includes('vulva') || h.includes('tomate') || h.includes('fraise') ||
+    h.includes('strawberr') || h.includes('tomato') || h.includes('nicoise') ||
+    h.includes('woke') || t.includes('vulva') || t.includes('tomate') ||
+    t.includes('fraise') || t.includes('strawberry') || t.includes('tomato') ||
+    t.includes('niçoise') || t.includes('woke');
+
+  const isVulvaEN = h.startsWith('vulva-la-revolution') && !h.includes('-fr');
+
+  const frenchWords = ['coeur', 'resister', 'rallume', 'lutte', 'fondu',
+    'tripes', 'eclaté', 'eclate', 'resiste', 'flamme', 'aimer', 'genereuse',
+    'beurre', 'motte', 'nicoise', 'prets', 'soumise', 'tomate', 'fraise',
+    'revolution-fr'];
+
+  const isFR = frenchWords.some(w => h.includes(w)) && !isVulvaEN;
+
+  if (isVulva) {
+    if (isMug) return isFR ? ['vulva-la-revolution-fr'] : ['vulva-la-revolution'];
+    if (isPoster) return isFR ? ['posters-vulva-la-revolution-fr'] : ['posters-vulva-la-revolution'];
+  }
+
+  if (isMug) return isFR ? ['mugs-le-coeur-manifeste'] : ['mugs-heart-of-protest'];
+  if (isPoster) return isFR ? ['posters-coeur-de-lutte'] : ['posters-heart-of-protest'];
+
+  return [];
+}
 
 const COLLECTION_LABELS = {
   'mugs-le-coeur-manifeste': 'Mugs "Cœur de Lutte"',
@@ -52,23 +74,13 @@ export default function CollectionPage() {
   const collectionData = collection?.data || collection;
 
   const filtered = useMemo(() => {
-    const filter = COLLECTION_FILTER_MAP[handle];
-    if (!filter) return allProducts;
-
     return allProducts.filter(p => {
       const d = p.data || p;
-      // First try to use the collections array on the product
-      if (d.collections && d.collections.length > 0) {
-        if (d.collections.includes(handle)) return true;
-      }
-      // Fallback: match by productType + title keywords
-      const title = (d.title || '').toLowerCase();
-      const productType = (d.productType || '').toLowerCase();
-      const isMug = productType.includes('print') && title.includes('mug');
-      const isPoster = productType.includes('print') && title.includes('poster');
-      const typeMatch = filter.type === 'mug' ? isMug : isPoster;
-      const themeMatch = filter.theme.some(kw => title.includes(kw));
-      return typeMatch && themeMatch;
+      // Use stored collections array if populated, otherwise compute from handle
+      const cols = (d.collections && d.collections.length > 0)
+        ? d.collections
+        : getCollectionsByHandle(d.handle, d.title);
+      return cols.includes(handle);
     });
   }, [allProducts, handle]);
 
