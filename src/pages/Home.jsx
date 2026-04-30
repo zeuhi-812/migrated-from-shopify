@@ -68,8 +68,8 @@ export default function Home() {
       <section className="relative bg-foreground text-background overflow-hidden border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center text-center">
           <p className="text-xs font-mono font-medium uppercase tracking-widest mb-4 text-primary">Boutique</p>
-          <h1 className="font-heading font-black uppercase text-5xl md:text-8xl mb-6 leading-none">
-            <span className="text-primary">PANCAR</span><span className="text-yellow-accent">TIVISTE !</span>
+          <h1 className="font-heading font-black uppercase text-5xl md:text-8xl mb-6 leading-none text-yellow-accent">
+            PANCARTIVISTE !
           </h1>
           <p className="text-sm font-mono text-background/70 max-w-2xl mb-8 leading-relaxed">
             Des créations militantes pour enchanter le quotidien. Mugs et posters imprimés à la demande — chaque achat soutient une artiste et un mouvement.

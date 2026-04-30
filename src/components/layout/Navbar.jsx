@@ -24,12 +24,12 @@ export default function Navbar() {
     }`;
 
   return (
-    <nav className="sticky top-0 z-50 bg-foreground border-b border-white/10">
+    <nav className="sticky top-0 z-50 bg-background border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link to="/" className="font-heading font-black text-lg uppercase tracking-tight text-background">
-            PANCARTIVISTE !
+          <Link to="/" className="font-heading font-black text-lg uppercase tracking-tight text-foreground">
+            <span className="text-primary">PANCAR</span><span className="text-yellow-accent">TIVISTE !</span>
           </Link>
 
           {/* Desktop nav */}
