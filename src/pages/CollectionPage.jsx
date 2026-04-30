@@ -74,14 +74,21 @@ export default function CollectionPage() {
   const collectionData = collection?.data || collection;
 
   const filtered = useMemo(() => {
-    return allProducts.filter(p => {
-      const d = p.data || p;
-      // Use stored collections array if populated, otherwise compute from handle
-      const cols = (d.collections && d.collections.length > 0)
-        ? d.collections
-        : getCollectionsByHandle(d.handle, d.title);
-      return cols.includes(handle);
-    });
+    return allProducts
+      .filter(p => {
+        const d = p.data || p;
+        const cols = (d.collections && d.collections.length > 0)
+          ? d.collections
+          : getCollectionsByHandle(d.handle, d.title);
+        return cols.includes(handle);
+      })
+      .sort((a, b) => {
+        const da = a.data || a;
+        const db = b.data || b;
+        const sa = da.sortOrder != null ? da.sortOrder : 9999;
+        const sb = db.sortOrder != null ? db.sortOrder : 9999;
+        return sa - sb;
+      });
   }, [allProducts, handle]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);

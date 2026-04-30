@@ -85,6 +85,10 @@
       "items": {
         "type": "string"
       }
+    },
+    "sortOrder": {
+      "type": "number",
+      "description": "Sort position within collection"
     }
   },
   "required": [
