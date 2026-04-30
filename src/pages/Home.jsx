@@ -40,7 +40,7 @@ const collectionSections = [
     handle: 'posters-vulva-la-revolution-fr',
     title: 'Posters "Vulva la Révolution" FR',
     subtitle: 'Des représentations de genre décomplexées.',
-    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/891f59f9c_generated_image.png',
+    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/72c962a6e_generated_image.png',
   },
   {
     handle: 'vulva-la-revolution',
@@ -52,7 +52,7 @@ const collectionSections = [
     handle: 'posters-vulva-la-revolution',
     title: 'Posters "Vulva la Revolution" EN',
     subtitle: 'Gender representations unchained.',
-    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/36d417008_generated_image.png',
+    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/ff5b4c9b7_generated_image.png',
   },
 ];
 
