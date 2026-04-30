@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;900&family=DM+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -26,10 +26,10 @@
     --input: 0 0% 20%;
     --ring: 68 100% 50%;
     --radius: 0.25rem;
-    --font-display: 'Barlow Condensed', sans-serif;
+    --font-display: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
-    --font-heading: 'Barlow Condensed', sans-serif;
-    --font-mono: 'Space Mono', monospace;
+    --font-heading: 'Poppins', sans-serif;
+    --font-mono: 'DM Mono', monospace;
     --chart-1: 68 100% 50%;
     --chart-2: 2 78% 55%;
     --chart-3: 0 0% 55%;
@@ -91,7 +91,5 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
   }
 }
