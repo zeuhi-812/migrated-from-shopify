@@ -58,7 +58,7 @@ const collectionSections = [
 ];
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['products-featured'],
     queryFn: () => base44.entities.Product.list('-createdAt', 8),
@@ -81,7 +81,7 @@ export default function Home() {
               <Link to="/boutique">{t.home.viewAll}</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="uppercase tracking-widest">
-              <a href={t.language === 'en' ? "https://pancartiviste.com" : "https://pancartiviste.fr"} target="_blank" rel="noreferrer">{t.language === 'en' ? "pancartiviste.com" : "pancartiviste.fr"} ↗</a>
+              <a href={language === 'en' ? "https://pancartiviste.com" : "https://pancartiviste.fr"} target="_blank" rel="noreferrer">{language === 'en' ? "pancartiviste.com" : "pancartiviste.fr"} ↗</a>
             </Button>
           </div>
         </div>
