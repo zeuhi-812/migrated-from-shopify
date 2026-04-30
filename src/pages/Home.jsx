@@ -75,10 +75,10 @@ export default function Home() {
             Des créations militantes pour enchanter le quotidien. Mugs et posters imprimés à la demande — chaque achat soutient une artiste et un mouvement.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button asChild size="lg" className="font-heading font-bold uppercase tracking-widest bg-primary text-white hover:bg-primary/90">
+            <Button asChild size="lg" className="uppercase tracking-widest bg-primary text-white hover:bg-primary/90">
               <Link to="/boutique">Voir tous les produits</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-mono font-medium uppercase tracking-widest border-background/30 text-foreground hover:bg-background/10">
+            <Button asChild size="lg" variant="outline" className="uppercase tracking-widest">
               <a href="https://pancartiviste.fr" target="_blank" rel="noreferrer">pancartiviste.fr ↗</a>
             </Button>
           </div>
