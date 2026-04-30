@@ -66,19 +66,19 @@ export default function Home() {
     <div>
       {/* Hero */}
       <section className="relative bg-foreground text-background overflow-hidden border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-start">
-          <p className="text-xs font-mono text-accent uppercase tracking-widest mb-4">Boutique</p>
-          <h1 className="font-heading font-black uppercase text-5xl md:text-8xl text-background mb-6 leading-none">
-            Pancartiviste !
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center text-center">
+          <p className="text-xs font-mono font-medium uppercase tracking-widest mb-4 text-primary">Boutique</p>
+          <h1 className="font-heading font-black uppercase text-5xl md:text-8xl mb-6 leading-none">
+            <span className="text-primary">PANCAR</span><span className="text-yellow-accent">TIVISTE !</span>
           </h1>
-          <p className="text-sm font-mono text-background/70 max-w-md mb-8 leading-relaxed">
+          <p className="text-sm font-mono text-background/70 max-w-2xl mb-8 leading-relaxed">
             Des créations militantes pour enchanter le quotidien. Mugs et posters imprimés à la demande — chaque achat soutient une artiste et un mouvement.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button asChild size="lg" className="font-heading font-bold uppercase tracking-widest bg-accent text-white hover:bg-accent/90">
+            <Button asChild size="lg" className="font-heading font-bold uppercase tracking-widest bg-primary text-white hover:bg-primary/90">
               <Link to="/boutique">Voir tous les produits</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-heading font-bold uppercase tracking-widest border-background/30 text-background hover:bg-background/10">
+            <Button asChild size="lg" variant="outline" className="font-mono font-medium uppercase tracking-widest border-background/30 text-background hover:bg-background/10">
               <a href="https://pancartiviste.fr" target="_blank" rel="noreferrer">pancartiviste.fr ↗</a>
             </Button>
           </div>

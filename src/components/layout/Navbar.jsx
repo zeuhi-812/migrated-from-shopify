@@ -19,8 +19,8 @@ export default function Navbar() {
   const location = useLocation();
 
   const linkClass = (path) =>
-    `text-xs font-heading font-bold uppercase tracking-widest transition-colors ${
-      location.pathname === path ? 'text-accent' : 'text-background/80 hover:text-background'
+    `text-xs font-mono font-medium uppercase tracking-widest transition-colors ${
+      location.pathname === path ? 'text-primary' : 'text-foreground/60 hover:text-foreground'
     }`;
 
   return (
@@ -40,16 +40,16 @@ export default function Navbar() {
 
             {/* Shop dropdown */}
             <div className="relative" onMouseEnter={() => setShopOpen(true)} onMouseLeave={() => setShopOpen(false)}>
-              <button className="text-xs font-heading font-bold uppercase tracking-widest text-background/80 hover:text-background transition-colors">
+              <button className="text-xs font-mono font-medium uppercase tracking-widest text-foreground/60 hover:text-foreground transition-colors">
                 Collections
               </button>
               {shopOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-64 bg-foreground border border-white/15 shadow-lg py-2 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-64 bg-background border border-border shadow-lg py-2 z-50">
                   {collections.map(c => (
                     <Link
                       key={c.handle}
                       to={`/collection/${c.handle}`}
-                      className="block px-4 py-2 text-xs font-mono text-background/70 hover:bg-white/10 hover:text-background transition-colors"
+                      className="block px-4 py-2 text-xs font-mono text-foreground/60 hover:bg-muted hover:text-foreground transition-colors"
                     >
                       {c.label}
                     </Link>
@@ -72,21 +72,21 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-white/10 bg-foreground px-4 pb-4 space-y-1">
-          <Link to="/boutique" className="block py-2 text-xs font-heading font-bold uppercase tracking-widest text-accent" onClick={() => setMobileOpen(false)}>Boutique</Link>
-          <div className="pl-2 space-y-1 border-l-2 border-background/20 ml-1">
+        <div className="md:hidden border-t border-border bg-background px-4 pb-4 space-y-1">
+          <Link to="/boutique" className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-primary" onClick={() => setMobileOpen(false)}>Boutique</Link>
+          <div className="pl-2 space-y-1 border-l-2 border-border ml-1">
             {collections.map(c => (
               <Link
                 key={c.handle}
                 to={`/collection/${c.handle}`}
-                className="block py-1.5 text-xs font-mono text-background/70"
+                className="block py-1.5 text-xs font-mono text-foreground/60"
                 onClick={() => setMobileOpen(false)}
               >
                 {c.label}
               </Link>
             ))}
           </div>
-          <Link to="/a-propos" className="block py-2 text-xs font-heading font-bold uppercase tracking-widest text-background/80" onClick={() => setMobileOpen(false)}>À propos</Link>
+          <Link to="/a-propos" className="block py-2 text-xs font-mono font-medium uppercase tracking-widest text-foreground/60" onClick={() => setMobileOpen(false)}>À propos</Link>
         </div>
       )}
     </nav>
