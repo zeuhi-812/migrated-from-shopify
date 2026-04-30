@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const collections = [
   { label: 'Mugs "Cœur de Lutte"', handle: 'mugs-le-coeur-manifeste' },
@@ -18,38 +18,38 @@ export default function Navbar() {
   const [shopOpen, setShopOpen] = useState(false);
   const location = useLocation();
 
+  const linkClass = (path) =>
+    `text-xs font-heading font-bold uppercase tracking-widest transition-colors ${
+      location.pathname === path ? 'text-accent' : 'text-foreground/80 hover:text-foreground'
+    }`;
+
   return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+    <nav className="sticky top-0 z-50 bg-[#e8e8e8] border-b border-black/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link to="/" className="font-display text-xl font-bold text-primary">
-            Pancartiviste !
+          <Link to="/" className="font-heading font-black text-lg uppercase tracking-tight text-foreground">
+            PANCARTIVISTE !
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6">
-            <Link to="/" className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/' ? 'text-primary' : 'text-foreground/70'}`}>
-              Accueil
+          <div className="hidden md:flex items-center gap-8">
+            <Link to="/boutique" className={linkClass('/boutique')}>
+              Boutique
             </Link>
 
             {/* Shop dropdown */}
             <div className="relative" onMouseEnter={() => setShopOpen(true)} onMouseLeave={() => setShopOpen(false)}>
-              <button className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors flex items-center gap-1">
-                <ShoppingBag className="w-4 h-4" />
-                Boutique
+              <button className="text-xs font-heading font-bold uppercase tracking-widest text-foreground/80 hover:text-foreground transition-colors">
+                Collections
               </button>
               {shopOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 bg-card border border-border rounded-lg shadow-lg py-2 z-50">
-                  <Link to="/boutique" className="block px-4 py-2 text-sm font-semibold text-primary hover:bg-muted transition-colors">
-                    Tous les produits
-                  </Link>
-                  <div className="border-t border-border my-1" />
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-64 bg-[#e8e8e8] border border-black/15 shadow-lg py-2 z-50">
                   {collections.map(c => (
                     <Link
                       key={c.handle}
                       to={`/collection/${c.handle}`}
-                      className="block px-4 py-2 text-sm text-foreground/70 hover:bg-muted hover:text-foreground transition-colors"
+                      className="block px-4 py-2 text-xs font-mono text-foreground/70 hover:bg-black/10 hover:text-foreground transition-colors"
                     >
                       {c.label}
                     </Link>
@@ -58,13 +58,13 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link to="/a-propos" className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/a-propos' ? 'text-primary' : 'text-foreground/70'}`}>
+            <Link to="/a-propos" className={linkClass('/a-propos')}>
               À propos
             </Link>
           </div>
 
           {/* Mobile toggle */}
-          <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="md:hidden p-2 text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
@@ -72,22 +72,21 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border bg-background px-4 pb-4 space-y-1">
-          <Link to="/" className="block py-2 text-sm font-medium" onClick={() => setMobileOpen(false)}>Accueil</Link>
-          <Link to="/boutique" className="block py-2 text-sm font-semibold text-primary" onClick={() => setMobileOpen(false)}>Tous les produits</Link>
-          <div className="pl-2 space-y-1 border-l-2 border-primary/20 ml-1">
+        <div className="md:hidden border-t border-black/10 bg-[#e8e8e8] px-4 pb-4 space-y-1">
+          <Link to="/boutique" className="block py-2 text-xs font-heading font-bold uppercase tracking-widest text-accent" onClick={() => setMobileOpen(false)}>Boutique</Link>
+          <div className="pl-2 space-y-1 border-l-2 border-foreground/20 ml-1">
             {collections.map(c => (
               <Link
                 key={c.handle}
                 to={`/collection/${c.handle}`}
-                className="block py-1.5 text-sm text-foreground/70"
+                className="block py-1.5 text-xs font-mono text-foreground/70"
                 onClick={() => setMobileOpen(false)}
               >
                 {c.label}
               </Link>
             ))}
           </div>
-          <Link to="/a-propos" className="block py-2 text-sm font-medium" onClick={() => setMobileOpen(false)}>À propos</Link>
+          <Link to="/a-propos" className="block py-2 text-xs font-heading font-bold uppercase tracking-widest text-foreground/80" onClick={() => setMobileOpen(false)}>À propos</Link>
         </div>
       )}
     </nav>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,78 +6,78 @@
 
 @layer base {
   :root {
-    --background: 0 0% 97%;
-    --foreground: 0 0% 5%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
-    --primary: 340 60% 35%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 92%;
-    --secondary-foreground: 0 0% 12%;
-    --muted: 0 0% 94%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 0 0% 8%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 0 0% 10%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 68 100% 50%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 2 78% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 2 78% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 85%;
-    --input: 0 0% 85%;
-    --ring: 340 60% 35%;
-    --radius: 0.5rem;
-    --font-display: 'Playfair Display', serif;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 68 100% 50%;
+    --radius: 0.25rem;
+    --font-display: 'Barlow Condensed', sans-serif;
     --font-body: 'Inter', sans-serif;
-    --font-heading: 'Poppins', sans-serif;
-    --font-mono: 'DM Mono', monospace;
-    --chart-1: 340 60% 35%;
-    --chart-2: 170 40% 30%;
-    --chart-3: 30 30% 60%;
-    --chart-4: 0 0% 40%;
-    --chart-5: 30 20% 80%;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 5%;
-    --sidebar-primary: 340 60% 35%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 94%;
-    --sidebar-accent-foreground: 0 0% 5%;
-    --sidebar-border: 0 0% 85%;
-    --sidebar-ring: 340 60% 35%;
+    --font-heading: 'Barlow Condensed', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --chart-1: 68 100% 50%;
+    --chart-2: 2 78% 55%;
+    --chart-3: 0 0% 55%;
+    --chart-4: 0 0% 75%;
+    --chart-5: 68 80% 35%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 68 100% 50%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 68 100% 50%;
   }
 
   .dark {
-    --background: 0 0% 5%;
+    --background: 0 0% 10%;
     --foreground: 0 0% 95%;
-    --card: 0 0% 8%;
+    --card: 0 0% 13%;
     --card-foreground: 0 0% 95%;
-    --popover: 0 0% 8%;
+    --popover: 0 0% 13%;
     --popover-foreground: 0 0% 95%;
-    --primary: 340 60% 55%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 14%;
+    --primary: 68 100% 50%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 18%;
     --secondary-foreground: 0 0% 90%;
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 0 0% 90%;
-    --accent-foreground: 0 0% 5%;
-    --destructive: 0 62.8% 30.6%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 2 78% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 2 78% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 340 60% 55%;
-    --chart-1: 340 60% 55%;
-    --chart-2: 170 40% 40%;
-    --chart-3: 30 30% 50%;
-    --chart-4: 0 0% 60%;
-    --chart-5: 30 20% 30%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 68 100% 50%;
+    --chart-1: 68 100% 50%;
+    --chart-2: 2 78% 55%;
+    --chart-3: 0 0% 55%;
+    --chart-4: 0 0% 75%;
+    --chart-5: 68 80% 35%;
     --sidebar-background: 0 0% 8%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 340 60% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 14%;
-    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 68 100% 50%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 90%;
     --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 340 60% 55%;
+    --sidebar-ring: 68 100% 50%;
   }
 }
 
@@ -88,5 +88,10 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 }

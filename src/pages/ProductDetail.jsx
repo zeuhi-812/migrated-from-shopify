@@ -112,7 +112,7 @@ export default function ProductDetail() {
         <div className="space-y-6">
           <div>
             <p className="text-sm text-muted-foreground mb-1 uppercase tracking-wide">{d.productType}</p>
-            <h1 className="font-display text-3xl font-bold text-foreground mb-3">{d.title}</h1>
+            <h1 className="font-heading font-black uppercase text-4xl text-primary mb-3">{d.title}</h1>
             {price && <p className="text-2xl font-semibold text-primary">{price}</p>}
           </div>
 

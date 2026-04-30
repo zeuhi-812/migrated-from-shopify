@@ -65,20 +65,20 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-primary text-primary-foreground overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 flex flex-col items-center text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest mb-4 opacity-80">Zeu Hi's Shop</p>
-          <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Pancartiviste !
+      <section className="relative bg-background text-foreground overflow-hidden border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-start">
+          <p className="text-xs font-mono text-accent uppercase tracking-widest mb-4">Boutique</p>
+          <h1 className="font-heading font-black uppercase text-5xl md:text-8xl text-primary mb-6 leading-none">
+            Objets de lutte
           </h1>
-          <p className="text-lg md:text-xl opacity-85 max-w-2xl mb-8 leading-relaxed">
+          <p className="text-sm font-mono text-muted-foreground max-w-md mb-8 leading-relaxed">
             Des créations militantes pour enchanter le quotidien. Mugs et posters imprimés à la demande — chaque achat soutient une artiste et un mouvement.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button asChild size="lg" variant="secondary" className="font-semibold">
+            <Button asChild size="lg" className="font-heading font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90">
               <Link to="/boutique">Voir tous les produits</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
+            <Button asChild size="lg" variant="outline" className="font-heading font-bold uppercase tracking-widest border-border text-foreground hover:bg-muted">
               <a href="https://pancartiviste.fr" target="_blank" rel="noreferrer">pancartiviste.fr ↗</a>
             </Button>
           </div>
@@ -87,8 +87,8 @@ export default function Home() {
 
       {/* Collection grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="font-display text-3xl font-bold text-center mb-2">Nos Collections</h2>
-        <p className="text-center text-muted-foreground mb-10">Explorez nos séries militantes et artistiques</p>
+        <h2 className="font-heading font-black uppercase text-4xl text-foreground mb-2">Nos Collections</h2>
+        <p className="text-xs font-mono text-muted-foreground mb-10 uppercase tracking-widest">Explorez nos séries militantes et artistiques</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {collectionSections.map(col => (
             <Link
@@ -113,7 +113,7 @@ export default function Home() {
       {/* Featured products */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-20">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-display text-3xl font-bold">Nouveautés</h2>
+          <h2 className="font-heading font-black uppercase text-4xl text-foreground">Nouveautés</h2>
           <Link to="/boutique" className="flex items-center gap-1 text-sm text-primary font-medium hover:gap-2 transition-all">
             Tout voir <ArrowRight className="w-4 h-4" />
           </Link>
@@ -140,7 +140,7 @@ export default function Home() {
       {/* Why buy here */}
       <section className="bg-card border-t border-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h2 className="font-display text-3xl font-bold mb-6">Pourquoi acheter ici ?</h2>
+          <h2 className="font-heading font-black uppercase text-4xl text-primary mb-6">Pourquoi acheter ici ?</h2>
           <p className="text-muted-foreground text-base leading-relaxed mb-4">
             Acheter ici, ce n'est pas juste consommer. <strong className="text-foreground">C'est participer.</strong>
           </p>

@@ -108,7 +108,7 @@ export default function CollectionPage() {
       </nav>
 
       <div className="mb-8">
-        <h1 className="font-display text-4xl font-bold mb-2">{label}</h1>
+        <h1 className="font-heading font-black uppercase text-5xl text-primary mb-2">{label}</h1>
         {collectionData?.descriptionHtml && (
           <details className="mt-2">
             <summary className="text-sm text-primary cursor-pointer hover:underline">Pourquoi acheter ici ?</summary>
