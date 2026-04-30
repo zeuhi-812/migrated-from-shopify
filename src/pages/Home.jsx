@@ -34,25 +34,25 @@ const collectionSections = [
     handle: 'vulva-la-revolution-fr',
     title: 'Mugs "Vulva la Révolution" FR',
     subtitle: 'Le sexe est tout sauf contre nature.',
-    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d7f013ddd_generated_image.png',
+    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/891f59f9c_generated_image.png',
   },
   {
     handle: 'posters-vulva-la-revolution-fr',
     title: 'Posters "Vulva la Révolution" FR',
     subtitle: 'Des représentations de genre décomplexées.',
-    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d7f013ddd_generated_image.png',
+    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/891f59f9c_generated_image.png',
   },
   {
     handle: 'vulva-la-revolution',
     title: 'Mugs "Vulva la Revolution" EN',
     subtitle: 'Sex is anything but unnatural.',
-    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/bd00d3fe8_generated_image.png',
+    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/36d417008_generated_image.png',
   },
   {
     handle: 'posters-vulva-la-revolution',
     title: 'Posters "Vulva la Revolution" EN',
     subtitle: 'Gender representations unchained.',
-    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/bd00d3fe8_generated_image.png',
+    img: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/36d417008_generated_image.png',
   },
 ];
 
