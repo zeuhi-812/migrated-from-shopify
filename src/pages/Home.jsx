@@ -81,7 +81,7 @@ export default function Home() {
               <Link to="/boutique">{t.home.viewAll}</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="uppercase tracking-widest">
-              <a href="https://pancartiviste.fr" target="_blank" rel="noreferrer">pancartiviste.fr ↗</a>
+              <a href={t.language === 'en' ? "https://pancartiviste.com" : "https://pancartiviste.fr"} target="_blank" rel="noreferrer">{t.language === 'en' ? "pancartiviste.com" : "pancartiviste.fr"} ↗</a>
             </Button>
           </div>
         </div>

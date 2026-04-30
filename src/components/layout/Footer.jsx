@@ -32,6 +32,8 @@ export default function Footer() {
             <h4 className="font-mono text-xs uppercase tracking-widest mb-3 text-muted-foreground">{t.footer.links}</h4>
             <p className="font-mono text-sm leading-relaxed">
               <a href="https://pancartiviste.fr" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">pancartiviste.fr</a><br/>
+              <a href="https://pancartiviste.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">pancartiviste.com</a><br/>
+              <a href="https://pancartiviste.org" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">pancartiviste.org</a><br/>
               <a href="https://www.patreon.com/c/u49061662" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">Patreon</a>
             </p>
           </div>
