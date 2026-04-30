@@ -6,11 +6,16 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 // Add page imports here
+import ShopLayout from '@/components/layout/ShopLayout';
+import Home from '@/pages/Home';
+import Boutique from '@/pages/Boutique';
+import CollectionPage from '@/pages/CollectionPage';
+import ProductDetail from '@/pages/ProductDetail';
+import About from '@/pages/About';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
-  // Show loading spinner while checking app public settings or auth
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
       <div className="fixed inset-0 flex items-center justify-center">
@@ -19,29 +24,30 @@ const AuthenticatedApp = () => {
     );
   }
 
-  // Handle authentication errors
   if (authError) {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      // Redirect to login automatically
       navigateToLogin();
       return null;
     }
   }
 
-  // Render the main app
   return (
     <Routes>
-      {/* Add your page Route elements here */}
+      <Route element={<ShopLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/boutique" element={<Boutique />} />
+        <Route path="/collection/:handle" element={<CollectionPage />} />
+        <Route path="/produit/:handle" element={<ProductDetail />} />
+        <Route path="/a-propos" element={<About />} />
+      </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };
 
-
 function App() {
-
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
