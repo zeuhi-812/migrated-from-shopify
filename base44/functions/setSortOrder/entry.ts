@@ -1,27 +1,31 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-// Ordered titles per collection (from Shopify screenshots)
 const SORT_ORDERS = {
   'vulva-la-revolution-fr': [
+    "Niçoise ni Soumise\" Tomate Mug Céramique",
     "Vulva la Révolution\" Tomate Mug Céramique",
     "Anti Patriarcat\" Tomate Mug Céramique",
     "Faites l'Amour\" Tomate Mug Céramique",
     "Pas la Guerre\" Tomate Mug Céramique",
-    "Niçoise ni Soumise\" Tomate Mug Céramique",
+    "Niçoise ni Soumise\" Fraise Mug Céramique",
+    "Niçoise ni Soumise\" Fraise qui Twerke Mug Céramique",
     "Vulva la Révolution\" Fraise Mug Céramique",
     "Anti Patriarcat\" Fraise Mug Céramique",
+    "Vulva la Révolution\" Fraise qui Twerke Mug Céramique",
+    "Anti Patriarcat\" Fraise Plumpy Mug Céramique",
     "Faites l'Amour\" Fraise Mug Céramique",
     "Pas la Guerre\" Fraise Mug Céramique",
-    "Niçoise ni Soumise\" Fraise Mug Céramique",
+    "Faites l'Amour\" Fraise qui Twerke Mug Céramique",
+    "Pas la Guerre\" Fraise Plumpy Mug Céramique",
+    "Faites l'Amour\" Fraise Callipyge Mug Céramique",
+    "Pas la Guerre\" Fraise Cœur Mug Céramique",
   ],
   'posters-vulva-la-revolution-fr': [
-    "Vulva la Révolution\" Tomate Poster",
-    "Toustes Ensemble\" Tomate Poster",
-    "Anti Patriarcat\" Tomate Poster",
-    "Prêts pour le Woke \" Tomate Poster",
     "Niçoise ni Soumise\" Tomate Poster",
-    "Woke is the New Sexy\" Tomate Poster",
-    "Ready for the Woke\" Tomate Poster",
+    "Vulva la Révolution\" Tomate Poster",
+    "Anti Patriarcat\" Tomate Poster",
+    "Toustes Ensemble\" Tomate Poster",
+    "Prêts pour le Woke\" Tomate Poster",
   ],
   'vulva-la-revolution': [
     "Vulva la Revolution\" Tomatoe Ceramic Mug",
@@ -30,10 +34,11 @@ const SORT_ORDERS = {
     "Not War\" Tomatoe Ceramic Mug",
   ],
   'posters-vulva-la-revolution': [
+    "Niçoise ni Soumise\" Tomatoe Poster",
     "Vulva la Revolution\" Tomatoe Poster",
     "Anti Patriarchy\" Tomatoe Poster",
-    "All Together\" Tomatoe Poster",
-    "Make Love not War\" Tomatoe Poster",
+    "Toustes Ensemble\" Tomatoe Poster",
+    "Prêts pour le Woke\" Tomatoe Poster",
     "Woke is the New Sexy\" Tomatoe Poster",
     "Ready for the Woke\" Tomatoe Poster",
   ],
@@ -81,16 +86,15 @@ const SORT_ORDERS = {
     "Aimer est un Acte Politique\" Poster",
     "Aimer c'est Résister\" Poster",
     "Solidaires\" Poster",
-    "Aimer c'est Résister\" Poster",
     "Cœur d'Artichaut Engagé\" Poster",
     "Cœur d'Artichaut Résistant\" Poster",
     "Cœur Généreux\" Poster",
     "Cœur d'Artichaut\" Poster",
     "Généreuse Résistance\" Poster",
     "Motte de Cœur\" Poster",
-    "Résistance Fondue \" Poster",
+    "Résistance Fondue\" Poster",
     "Motte de Cul\" Poster",
-    "Fondu.e de Résistance \" Poster",
+    "Fondu.e de Résistance\" Poster",
     "Cœur de Lutte\" Poster",
     "Tripes Résistantes\" Poster",
     "Cœur Eclaté\" Poster",
@@ -99,6 +103,20 @@ const SORT_ORDERS = {
     "Résiste en Cendres\" Poster",
   ],
   'posters-heart-of-protest': [
+    "Love Tune\" Poster",
+    "Love Resists\" Poster",
+    "Locked on Love\" Poster",
+    "Locked on Resistance\" Poster",
+    "Pick my Love\" Poster",
+    "My Heart Resists\" Poster",
+    "Pick my Heart\" Poster",
+    "Pick My Resistance\" Poster",
+    "Love Freely\" Poster",
+    "To Love is to Resist\" Poster",
+    "Solidarity\" Poster",
+    "Solidarity Resists\" Poster",
+    "Generous Heart\" Poster",
+    "Tender Artichoke\" Poster",
     "Generous Resistance\" Poster",
     "Tender Heart\" Poster",
     "Resistant Heartichoke\" Poster",
@@ -109,15 +127,13 @@ const SORT_ORDERS = {
     "Butter Love\" Poster",
     "Buttered Resistance\" Poster",
     "Shattered Heart\" Poster",
-    "Shattered Heart\" Poster",
     "Spark the Flame\" Poster",
     "Ashes Resistance\" Poster",
   ],
 };
 
-// Normalize title for comparison: lowercase, remove leading quote
 function normalize(t) {
-  return (t || '').toLowerCase().replace(/^["«]/, '').trim();
+  return (t || '').toLowerCase().replace(/^["«"]/, '').trim();
 }
 
 Deno.serve(async (req) => {
