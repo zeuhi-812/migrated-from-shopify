@@ -3,23 +3,16 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 // Ordered titles per collection (from Shopify screenshots)
 const SORT_ORDERS = {
   'vulva-la-revolution-fr': [
-    "Niçoise ni Soumise\" Tomate Mug Céramique",
     "Vulva la Révolution\" Tomate Mug Céramique",
     "Anti Patriarcat\" Tomate Mug Céramique",
     "Faites l'Amour\" Tomate Mug Céramique",
     "Pas la Guerre\" Tomate Mug Céramique",
-    "Niçoise ni Soumise\" Fraise Mug Céramique",
-    "Niçoise ni Soumise\" Fraise Mug Céramique",
-    "Vulva la Révolution\" Fraise Mug Céramique",
-    "Anti Patriarcat\" Fraise Mug Céramique",
+    "Niçoise ni Soumise\" Tomate Mug Céramique",
     "Vulva la Révolution\" Fraise Mug Céramique",
     "Anti Patriarcat\" Fraise Mug Céramique",
     "Faites l'Amour\" Fraise Mug Céramique",
     "Pas la Guerre\" Fraise Mug Céramique",
-    "Faites l'Amour\" Fraise Mug Céramique",
-    "Pas la Guerre\" Fraise Mug Céramique",
-    "Faites l'Amour Pas la Guerre\" Fraise Mug Céramique",
-    "Pas la Guerre\" Fraise Mug Céramique",
+    "Niçoise ni Soumise\" Fraise Mug Céramique",
   ],
   'posters-vulva-la-revolution-fr': [
     "Vulva la Révolution\" Tomate Poster",
@@ -27,6 +20,8 @@ const SORT_ORDERS = {
     "Anti Patriarcat\" Tomate Poster",
     "Prêts pour le Woke \" Tomate Poster",
     "Niçoise ni Soumise\" Tomate Poster",
+    "Woke is the New Sexy\" Tomate Poster",
+    "Ready for the Woke\" Tomate Poster",
   ],
   'vulva-la-revolution': [
     "Vulva la Revolution\" Tomatoe Ceramic Mug",
