@@ -64,7 +64,7 @@ Deno.serve(async (req) => {
   }
 
   // Fetch all Base44 products
-  const products = await base44.asServiceRole.entities.Product.list();
+  const products = await base44.asServiceRole.entities.Product.list('created_date', 500);
   let updated = 0;
   let skipped = 0;
 

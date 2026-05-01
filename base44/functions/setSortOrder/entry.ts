@@ -34,11 +34,10 @@ const SORT_ORDERS = {
     "Not War\" Tomatoe Ceramic Mug",
   ],
   'posters-vulva-la-revolution': [
-    "Niçoise ni Soumise\" Tomatoe Poster",
     "Vulva la Revolution\" Tomatoe Poster",
     "Anti Patriarchy\" Tomatoe Poster",
-    "Toustes Ensemble\" Tomatoe Poster",
-    "Prêts pour le Woke\" Tomatoe Poster",
+    "All Together\" Tomatoe Poster",
+    "Make Love not War\" Tomatoe Poster",
     "Woke is the New Sexy\" Tomatoe Poster",
     "Ready for the Woke\" Tomatoe Poster",
   ],
