@@ -1,89 +1,108 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-// Determine collection from product title and handle
-// Rules:
-// - FR mug title contains "Céramique" or "Ceramique" (accented), EN contains "Ceramic" (no accent)
-// - FR poster titles are in French, EN poster titles are in English
-// - Vulva series: handles contain "vulva", "tomate", "fraise", "strawberr", "tomato", "nicoise", "woke"
-// - Vulva FR: handle contains "-fr" suffix OR French vulva keywords; Vulva EN: starts with "vulva-la-revolution" without "-fr"
+// Determine collection from product handle and title
+// Strategy:
+// 1. Explicit handle markers: -fr → French, -en → English
+// 2. Title keyword scoring: accented French words vs plain English words
+// 3. Type detection: mug vs poster
+// 4. Series detection: Vulva series vs Cœur de Lutte / Heart of Protest
+
 function getCollections(handle, title) {
   const h = (handle || '').toLowerCase();
   const t = (title || '').toLowerCase();
 
+  // --- Type detection ---
   const isMug = h.includes('mug') || t.includes('mug');
   const isPoster = h.includes('poster') || t.includes('poster');
 
-  // Vulva series detection
+  // --- Series detection ---
   const isVulva = h.includes('vulva') || h.includes('tomate') || h.includes('fraise') ||
     h.includes('strawberr') || h.includes('tomato') || h.includes('nicoise') ||
-    h.includes('woke') || t.includes('vulva');
+    h.includes('woke') || t.includes('vulva') || t.includes('niçoise') ||
+    t.includes('soumise') || t.includes('révolution');
 
+  // --- Language detection ---
+  // Step 1: explicit handle suffix
+  const hasFrSuffix = h.includes('-fr');
+  const hasEnSuffix = h.includes('-en');
+
+  let isFR = null; // null = undetermined
+
+  if (hasFrSuffix && !hasEnSuffix) {
+    isFR = true;
+  } else if (hasEnSuffix && !hasFrSuffix) {
+    isFR = false;
+  } else {
+    // Step 2: title keyword scoring
+    // French-only words (with accents or French-specific)
+    const frKeywords = [
+      'céramique', 'cœur', 'révolution', 'résistance', 'résiste', 'solidaires',
+      'aimer', 'amour', 'lutte', 'flamme', 'rallume', 'fondu', 'tripes',
+      'généreuse', 'généreux', 'tomate', 'fraise', 'niçoise', 'soumise',
+      'patriarcat', 'toustes', 'ensemble', 'misandrie', 'politique',
+      'motte', 'beurre', 'éclaté', 'eclate', 'cendres', 'chœur', 'choeur',
+      'pic de', 'clé de', 'pique', 'artichaut', 'engagé', 'résistant',
+      'militante', 'manifeste',
+    ];
+    // English-only words
+    const enKeywords = [
+      'ceramic', 'heart', 'protest', 'solidarity', 'resist', 'resists',
+      'love freely', 'locked', 'butter', 'shattered', 'melted', 'spark',
+      'ashes', 'strawberry', 'tomato', 'patriarchy', 'together',
+      'artichoke', 'generous', 'tender', 'tune', 'revolution',
+      'woke is', 'sexy', 'make love',
+    ];
+
+    let frScore = frKeywords.filter(k => t.includes(k)).length;
+    let enScore = enKeywords.filter(k => t.includes(k)).length;
+
+    // Strong FR discriminator: accented "céramique"
+    if (t.includes('céramique')) frScore += 3;
+    // Strong EN discriminator: "ceramic" without accent
+    if (t.includes('ceramic')) enScore += 3;
+
+    if (frScore > enScore) isFR = true;
+    else if (enScore > frScore) isFR = false;
+    else {
+      // Step 3: handle keyword fallback
+      const frHandleWords = [
+        'ceramique', 'coeur', 'lutte', 'aimer', 'amour', 'solidaire',
+        'rallume', 'fondu', 'resiste', 'tripes', 'eclat', 'flamme',
+        'genereuse', 'beurre', 'motte', 'prets', 'soumise', 'politique',
+        'cle-de', 'pique-l', 'pic-de', 'choeur', 'manifeste', 'chœur',
+      ];
+      const enHandleWords = [
+        'ceramic', 'heart-of', 'protest', 'solidarity', 'butter',
+        'shattered', 'spark', 'ashes', 'artichoke', 'generous', 'tender',
+        'make-love', 'locked', 'melted',
+      ];
+
+      const frHScore = frHandleWords.filter(k => h.includes(k)).length;
+      const enHScore = enHandleWords.filter(k => h.includes(k)).length;
+
+      if (frHScore > enHScore) isFR = true;
+      else if (enHScore > frHScore) isFR = false;
+      else {
+        // Final fallback: Vulva series without -fr/-en → "vulva-la-revolution" = EN
+        if (isVulva && h.startsWith('vulva-la-revolution') && !hasFrSuffix) {
+          isFR = false;
+        } else {
+          isFR = true; // default to FR if still undetermined
+        }
+      }
+    }
+  }
+
+  // --- Assign collection ---
   if (isVulva) {
-    // Vulva EN detection: title is in English (no French words in title)
-    // French vulva titles contain accented French words
-    const frenchVulvaWords = ['révolution', 'révol', 'tomate', 'fraise', 'misandrie',
-      'toustes', 'ensemble', 'patriarcat', 'faites', 'lamour', 'pas la', 'pas-la',
-      'céramique', 'mug c'];
-    const englishOnlyHandle = !h.includes('tomate') && !h.includes('fraise') &&
-      !h.includes('patriarcat') && !h.includes('toustes') && !h.includes('pas-la') &&
-      !h.includes('faites') && !h.includes('misandrie');
-    const englishOnlyTitle = !frenchVulvaWords.some(w => t.includes(w));
-    const isVulvaEN = (h.startsWith('vulva-la-revolution') && !h.includes('-fr')) ||
-      (englishOnlyHandle && englishOnlyTitle);
-    const isFR = !isVulvaEN;
     if (isMug) return isFR ? ['vulva-la-revolution-fr'] : ['vulva-la-revolution'];
     if (isPoster) return isFR ? ['posters-vulva-la-revolution-fr'] : ['posters-vulva-la-revolution'];
     return [];
+  } else {
+    if (isMug) return isFR ? ['mugs-le-coeur-manifeste'] : ['mugs-heart-of-protest'];
+    if (isPoster) return isFR ? ['posters-coeur-de-lutte'] : ['posters-heart-of-protest'];
+    return [];
   }
-
-  // For non-vulva products: detect FR vs EN
-  // FR titles contain French words like "Céramique" (with accent) or French poster keywords
-  // EN titles use English words only
-  // Key discriminator: FR mugs have "céramique" in title (with accent é), EN mugs have "ceramic" without accent
-  // FR posters have French words in title, EN posters have English words
-  
-  // FR detection: check for explicitly French words in handle
-  // English handles use English-only words and never contain these French-specific patterns
-  const frenchHandleWords = [
-    'ceramique',      // FR mug suffix
-    'coeur',          // cœur
-    'lutte',
-    'aimer',
-    'amour',
-    'solidaire',      // "solidaires" (FR), not "solidarity" (EN)
-    'rallume',
-    'fondu',
-    'resiste',        // résiste (FR), not "resists" (EN)
-    'fondue',
-    'tripes',
-    'eclat',
-    'flamme',
-    'genereuse',      // génereuse (FR), not "generous" (EN)
-    'beurre',
-    'motte',
-    'prets',
-    'soumise',
-    'politique',
-    'cle-de',         // "clé de lutte"
-    'pique-l',        // "pique l'amour"
-    'pic-de',         // "pic de cœur"
-    'choeur',
-    'tendre-c',       // "cœur tendre" → handle: coeur-tendre or tendre-coeur
-    'cendres',        // "résiste en cendres"
-    'chœur',
-    'choeur',
-    'manifeste',
-    '-fr-',           // explicit FR marker
-  ];
-
-  const isFrenchTitle = 
-    t.includes('céramique') ||    // FR mug title has accent
-    frenchHandleWords.some(w => h.includes(w));
-
-  if (isMug) return isFrenchTitle ? ['mugs-le-coeur-manifeste'] : ['mugs-heart-of-protest'];
-  if (isPoster) return isFrenchTitle ? ['posters-coeur-de-lutte'] : ['posters-heart-of-protest'];
-
-  return [];
 }
 
 Deno.serve(async (req) => {
