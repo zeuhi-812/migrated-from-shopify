@@ -1,11 +1,11 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-const SHOP = Deno.env.get('SHOPIFY_SHOP_DOMAIN');
-const TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
-
 async function fetchAllShopifyProducts() {
+  const SHOP = Deno.env.get('SHOPIFY_SHOP_DOMAIN');
+  const TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
   const products = [];
   let url = `https://${SHOP}/admin/api/2024-01/products.json?limit=250&status=any`;
+  console.log('[Shopify] SHOP:', SHOP, '| TOKEN set:', !!TOKEN, '| URL:', url);
 
   while (url) {
     const res = await fetch(url, {
@@ -15,10 +15,10 @@ async function fetchAllShopifyProducts() {
       },
     });
     const data = await res.json();
+    console.log('[Shopify] status:', res.status, 'count:', data.products?.length ?? 'N/A', 'error:', data.errors || '');
     if (!data.products) break;
     products.push(...data.products);
 
-    // Parse Link header for next page
     const linkHeader = res.headers.get('Link') || '';
     const nextMatch = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
     url = nextMatch ? nextMatch[1] : null;
