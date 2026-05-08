@@ -1,53 +1,39 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
+// v3 - forced redeploy
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const user = await base44.auth.me();
-    if (user?.role !== 'admin') {
-      return Response.json({ error: 'Forbidden' }, { status: 403 });
-    }
 
     const SHOP = Deno.env.get('SHOPIFY_SHOP_DOMAIN');
     const TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
 
-    console.log('[Shopify] SHOP:', SHOP, '| TOKEN set:', !!TOKEN);
+    console.log('SYNC_V3 SHOP:', SHOP, 'TOKEN_PREFIX:', TOKEN?.substring(0, 10));
 
     const products = [];
     let url = `https://${SHOP}/admin/api/2024-01/products.json?limit=250&status=any`;
 
     while (url) {
-      console.log('[Shopify] fetching:', url);
+      console.log('SYNC_V3 fetching:', url);
       const res = await fetch(url, {
-        headers: {
-          'X-Shopify-Access-Token': TOKEN,
-          'Content-Type': 'application/json',
-        },
+        headers: { 'X-Shopify-Access-Token': TOKEN },
       });
       const text = await res.text();
-      console.log('[Shopify] status:', res.status, '| body (first 300):', text.substring(0, 300));
+      console.log('SYNC_V3 status:', res.status, 'body:', text.substring(0, 400));
 
       let data;
-      try {
-        data = JSON.parse(text);
-      } catch (e) {
-        console.log('[Shopify] JSON parse error:', e.message);
-        break;
-      }
-
-      console.log('[Shopify] products in page:', data.products?.length ?? 'N/A', '| keys:', Object.keys(data));
+      try { data = JSON.parse(text); } catch (e) { break; }
 
       if (!data.products || data.products.length === 0) break;
       products.push(...data.products);
 
-      const linkHeader = res.headers.get('Link') || '';
-      const nextMatch = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
-      url = nextMatch ? nextMatch[1] : null;
+      const link = res.headers.get('Link') || '';
+      const next = link.match(/<([^>]+)>;\s*rel="next"/);
+      url = next ? next[1] : null;
     }
 
-    console.log('[Shopify] total products fetched:', products.length);
+    console.log('SYNC_V3 total:', products.length);
 
-    // Load existing products to match by handle
     const existing = await base44.asServiceRole.entities.Product.list('created_date', 500);
     const byHandle = {};
     for (const p of existing) {
@@ -97,7 +83,7 @@ Deno.serve(async (req) => {
 
     return Response.json({ success: true, total: products.length, created, updated });
   } catch (error) {
-    console.log('[ERROR]', error.message, error.stack);
+    console.log('SYNC_V3 ERROR:', error.message);
     return Response.json({ error: error.message }, { status: 500 });
   }
 });
