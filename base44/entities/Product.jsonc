@@ -16,11 +16,11 @@
     },
     "productType": {
       "type": "string",
-      "description": "Product type"
+      "description": "Product type / catalog"
     },
     "vendor": {
       "type": "string",
-      "description": "Vendor name"
+      "description": "Vendor name (Shopify or Gelato)"
     },
     "status": {
       "type": "string",
@@ -29,6 +29,30 @@
     "tags": {
       "type": "string",
       "description": "Comma-separated tags"
+    },
+    "productUid": {
+      "type": "string",
+      "description": "Gelato product UID"
+    },
+    "catalogUid": {
+      "type": "string",
+      "description": "Gelato catalog UID"
+    },
+    "catalogTitle": {
+      "type": "string",
+      "description": "Gelato catalog title"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Gelato product attributes"
+    },
+    "weight": {
+      "type": "object",
+      "description": "Product weight"
+    },
+    "dimensions": {
+      "type": "object",
+      "description": "Product dimensions"
     },
     "variants": {
       "type": "array",
@@ -50,6 +74,9 @@
           },
           "inventoryQuantity": {
             "type": "number"
+          },
+          "shopifyVariantId": {
+            "type": "string"
           }
         }
       }
