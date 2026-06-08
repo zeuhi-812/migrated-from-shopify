@@ -1,80 +1,78 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
 
-// v5 - full pagination + variant IDs + STORE_URL fallback
+// v6 - correct cursor pagination via page_info
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
 
-    let SHOP = Deno.env.get('SHOPIFY_SHOP_DOMAIN');
+    const SHOP = Deno.env.get('SHOPIFY_SHOP_DOMAIN');
     const TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
-    const STORE_URL = Deno.env.get('STORE_URL');
-
-    // Fallback: extract domain from STORE_URL if SHOP is not set or missing
-    if ((!SHOP || !SHOP.includes('.myshopify.com')) && STORE_URL) {
-      try {
-        const u = new URL(STORE_URL.startsWith('http') ? STORE_URL : `https://${STORE_URL}`);
-        SHOP = u.hostname;
-      } catch (_) {}
-    }
-
-    console.log('SYNC_V5 SHOP:', SHOP);
-    console.log('SYNC_V5 TOKEN present:', !!TOKEN, 'prefix:', TOKEN?.substring(0, 8));
-    console.log('SYNC_V5 STORE_URL:', STORE_URL);
 
     if (!SHOP || !TOKEN) {
       return Response.json({ error: 'Missing SHOPIFY_SHOP_DOMAIN or SHOPIFY_ADMIN_TOKEN' }, { status: 400 });
     }
 
-    // Fetch ALL products with cursor-based pagination (Link header)
-    const products = [];
-    let url = `https://${SHOP}/admin/api/2024-01/products.json?limit=250&status=any`;
+    console.log('SYNC_V6 SHOP:', SHOP);
 
-    while (url) {
-      console.log('SYNC_V5 fetching page:', url.substring(0, 120));
+    // --- Step 1: Fetch ALL products from Shopify using cursor-based pagination ---
+    const allProducts = [];
+    let pageInfo = null;
+    let isFirstPage = true;
+
+    while (true) {
+      let url;
+      if (isFirstPage) {
+        url = `https://${SHOP}/admin/api/2024-01/products.json?limit=250&status=any`;
+        isFirstPage = false;
+      } else if (pageInfo) {
+        url = `https://${SHOP}/admin/api/2024-01/products.json?limit=250&page_info=${pageInfo}`;
+      } else {
+        break;
+      }
+
+      console.log('SYNC_V6 fetching:', url.substring(0, 150));
+
       const res = await fetch(url, {
-        headers: {
-          'X-Shopify-Access-Token': TOKEN,
-          'Content-Type': 'application/json',
-        },
+        headers: { 'X-Shopify-Access-Token': TOKEN },
       });
-
-      console.log('SYNC_V5 HTTP status:', res.status);
 
       if (!res.ok) {
         const body = await res.text();
-        console.log('SYNC_V5 error body:', body.substring(0, 500));
-        return Response.json({ error: `Shopify API error ${res.status}`, body: body.substring(0, 500) }, { status: 500 });
+        console.log('SYNC_V6 HTTP error:', res.status, body.substring(0, 300));
+        return Response.json({ error: `Shopify API error ${res.status}`, detail: body.substring(0, 300) }, { status: 500 });
       }
 
       const data = await res.json();
       const batch = data.products || [];
-      console.log('SYNC_V5 batch size:', batch.length);
+      allProducts.push(...batch);
+      console.log(`SYNC_V6 page fetched: ${batch.length} products (total so far: ${allProducts.length})`);
 
-      if (batch.length === 0) break;
-      products.push(...batch);
-
-      // Follow Link header for next page
-      const link = res.headers.get('Link') || '';
-      const next = link.match(/<([^>]+)>;\s*rel="next"/);
-      url = next ? next[1] : null;
+      // Parse Link header for next page_info cursor
+      const linkHeader = res.headers.get('Link') || '';
+      const nextMatch = linkHeader.match(/<[^>]*[?&]page_info=([^&>]+)[^>]*>;\s*rel="next"/);
+      if (nextMatch) {
+        pageInfo = nextMatch[1];
+      } else {
+        break; // no more pages
+      }
     }
 
-    console.log('SYNC_V5 total products fetched from Shopify:', products.length);
+    console.log('SYNC_V6 total fetched from Shopify:', allProducts.length);
 
-    // Load existing products to detect creates vs updates
+    // --- Step 2: Load all existing products from DB ---
     const existing = await base44.asServiceRole.entities.Product.list('created_date', 1000);
     const byHandle = {};
     for (const p of existing) {
       const d = p.data || p;
       if (d.handle) byHandle[d.handle] = p;
     }
+    console.log('SYNC_V6 existing in DB:', existing.length);
 
-    console.log('SYNC_V5 existing in DB:', existing.length);
-
+    // --- Step 3: Upsert ---
     let created = 0;
     let updated = 0;
 
-    for (const sp of products) {
+    for (const sp of allProducts) {
       const mapped = {
         title: sp.title || '',
         handle: sp.handle || '',
@@ -89,7 +87,7 @@ Deno.serve(async (req) => {
           price: v.price,
           compareAtPrice: v.compare_at_price || null,
           inventoryQuantity: v.inventory_quantity ?? 0,
-          shopifyVariantId: String(v.id), // store variant ID for checkout links
+          shopifyVariantId: String(v.id),
         })),
         images: (sp.images || []).map(img => ({
           url: img.src,
@@ -112,9 +110,17 @@ Deno.serve(async (req) => {
       }
     }
 
-    return Response.json({ success: true, total: products.length, created, updated, existingInDB: existing.length });
+    console.log(`SYNC_V6 done: created=${created}, updated=${updated}`);
+
+    return Response.json({
+      success: true,
+      totalFetchedFromShopify: allProducts.length,
+      created,
+      updated,
+      totalInDB: created + updated,
+    });
   } catch (error) {
-    console.log('SYNC_V5 ERROR:', error.message, error.stack);
+    console.log('SYNC_V6 ERROR:', error.message);
     return Response.json({ error: error.message }, { status: 500 });
   }
 });
