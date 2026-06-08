@@ -137,15 +137,30 @@ export default function ProductDetail() {
           )}
 
           {/* CTA */}
-          <a
-            href={`https://xiju12-xu.myshopify.com/products/${d.handle}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Button size="lg" className="w-full font-semibold">
-              {t.product.orderShopify}
-            </Button>
-          </a>
+          <div className="flex flex-col gap-2">
+            <a
+              href={currentVariant?.shopifyVariantId
+                ? `https://xiju12-xu.myshopify.com/cart/${currentVariant.shopifyVariantId}:1`
+                : `https://xiju12-xu.myshopify.com/products/${d.handle}`}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full"
+            >
+              <Button size="lg" className="w-full font-semibold">
+                🛒 {t.product.orderShopify}
+              </Button>
+            </a>
+            <a
+              href={`https://xiju12-xu.myshopify.com/products/${d.handle}`}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full"
+            >
+              <Button size="lg" variant="outline" className="w-full font-semibold">
+                Voir sur Shopify ↗
+              </Button>
+            </a>
+          </div>
 
           {/* Description */}
           {d.descriptionHtml && (
