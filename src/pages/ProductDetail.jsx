@@ -138,28 +138,29 @@ export default function ProductDetail() {
 
           {/* CTA */}
           <div className="flex flex-col gap-2">
-            <a
-              href={currentVariant?.shopifyVariantId
+            {(() => {
+              // Gelato order link
+              const gelatoVariantId = currentVariant?.gelatoVariantId;
+              const gelatoLinks = d.gelatoOrderLinks || {};
+              const orderUrl = (gelatoVariantId && gelatoLinks[gelatoVariantId])
+                || d.gelatoPreviewUrl
+                || null;
+
+              // Fallback: Shopify link for legacy products
+              const shopifyUrl = currentVariant?.shopifyVariantId
                 ? `https://xiju12-xu.myshopify.com/cart/${currentVariant.shopifyVariantId}:1`
-                : `https://xiju12-xu.myshopify.com/products/${d.handle}`}
-              target="_blank"
-              rel="noreferrer"
-              className="w-full"
-            >
-              <Button size="lg" className="w-full font-semibold">
-                🛒 {t.product.orderShopify}
-              </Button>
-            </a>
-            <a
-              href={`https://xiju12-xu.myshopify.com/products/${d.handle}`}
-              target="_blank"
-              rel="noreferrer"
-              className="w-full"
-            >
-              <Button size="lg" variant="outline" className="w-full font-semibold">
-                Voir sur Shopify ↗
-              </Button>
-            </a>
+                : (d.handle && !d.productUid ? `https://xiju12-xu.myshopify.com/products/${d.handle}` : null);
+
+              const finalUrl = orderUrl || shopifyUrl;
+
+              return finalUrl ? (
+                <a href={finalUrl} target="_blank" rel="noreferrer" className="w-full">
+                  <Button size="lg" className="w-full font-semibold">
+                    🛒 Commander
+                  </Button>
+                </a>
+              ) : null;
+            })()}
           </div>
 
           {/* Description */}

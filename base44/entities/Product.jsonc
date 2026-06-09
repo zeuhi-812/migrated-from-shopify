@@ -16,11 +16,11 @@
     },
     "productType": {
       "type": "string",
-      "description": "Product type / catalog"
+      "description": "Product type (mug, poster...)"
     },
     "vendor": {
       "type": "string",
-      "description": "Vendor name (Shopify or Gelato)"
+      "description": "Vendor name (Gelato, Zeu Hi's...)"
     },
     "status": {
       "type": "string",
@@ -54,6 +54,14 @@
       "type": "object",
       "description": "Product dimensions"
     },
+    "gelatoPreviewUrl": {
+      "type": "string",
+      "description": "Gelato preview image URL"
+    },
+    "gelatoOrderLinks": {
+      "type": "object",
+      "description": "Map of gelatoVariantId -> order URL"
+    },
     "variants": {
       "type": "array",
       "description": "Product variants",
@@ -77,6 +85,9 @@
           },
           "shopifyVariantId": {
             "type": "string"
+          },
+          "gelatoVariantId": {
+            "type": "string"
           }
         }
       }
@@ -98,13 +109,11 @@
     },
     "createdAt": {
       "type": "string",
-      "format": "date-time",
-      "description": "Created date"
+      "format": "date-time"
     },
     "updatedAt": {
       "type": "string",
-      "format": "date-time",
-      "description": "Updated date"
+      "format": "date-time"
     },
     "collections": {
       "type": "array",
