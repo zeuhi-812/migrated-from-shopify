@@ -1,0 +1,54 @@
+{
+  "name": "CartItem",
+  "type": "object",
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "description": "Session ID anonyme pour identifier le panier"
+    },
+    "productId": {
+      "type": "string",
+      "description": "ID Base44 du produit"
+    },
+    "variantIndex": {
+      "type": "number",
+      "description": "Index de la variante s\u00e9lectionn\u00e9e"
+    },
+    "variantTitle": {
+      "type": "string",
+      "description": "Titre de la variante"
+    },
+    "gelatoVariantId": {
+      "type": "string",
+      "description": "ID variante Gelato"
+    },
+    "title": {
+      "type": "string",
+      "description": "Titre du produit"
+    },
+    "price": {
+      "type": "number",
+      "description": "Prix unitaire en euros"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Quantit\u00e9",
+      "default": 1
+    },
+    "imageUrl": {
+      "type": "string",
+      "description": "URL image du produit"
+    },
+    "handle": {
+      "type": "string",
+      "description": "Handle du produit pour les liens"
+    }
+  },
+  "required": [
+    "sessionId",
+    "productId",
+    "title",
+    "price",
+    "quantity"
+  ]
+}

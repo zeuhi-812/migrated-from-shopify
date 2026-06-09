@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
+import CartButton from '@/components/cart/CartButton';
 
 const collections = [
   { label: 'Mugs "Cœur de Lutte"', handle: 'mugs-le-coeur-manifeste' },
@@ -71,12 +72,17 @@ export default function Navbar() {
             >
               {language === 'fr' ? 'EN' : 'FR'}
             </button>
+
+            <CartButton />
           </div>
 
-          {/* Mobile toggle */}
-          <button className="md:hidden p-2 text-background" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile: cart + toggle */}
+          <div className="md:hidden flex items-center gap-1">
+            <CartButton />
+            <button className="p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </div>
 

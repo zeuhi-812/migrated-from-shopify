@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import { LanguageProvider } from '@/lib/LanguageContext';
+import { CartProvider } from '@/lib/CartContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 // Add page imports here
 import ShopLayout from '@/components/layout/ShopLayout';
@@ -13,6 +14,7 @@ import Boutique from '@/pages/Boutique';
 import CollectionPage from '@/pages/CollectionPage';
 import ProductDetail from '@/pages/ProductDetail';
 import About from '@/pages/About';
+import OrderConfirmed from '@/pages/OrderConfirmed';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -42,6 +44,7 @@ const AuthenticatedApp = () => {
         <Route path="/collection/:handle" element={<CollectionPage />} />
         <Route path="/produit/:handle" element={<ProductDetail />} />
         <Route path="/a-propos" element={<About />} />
+        <Route path="/commande-confirmee" element={<OrderConfirmed />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
@@ -53,10 +56,12 @@ function App() {
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
         <LanguageProvider>
-          <Router>
-            <AuthenticatedApp />
-          </Router>
-          <Toaster />
+          <CartProvider>
+            <Router>
+              <AuthenticatedApp />
+            </Router>
+            <Toaster />
+          </CartProvider>
         </LanguageProvider>
       </QueryClientProvider>
     </AuthProvider>

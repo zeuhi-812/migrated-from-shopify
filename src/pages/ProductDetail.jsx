@@ -2,16 +2,19 @@ import { useParams, Link } from 'react-router-dom';
 import { useState, useMemo } from 'react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ShoppingBag, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useLanguage } from '@/lib/LanguageContext';
+import { useCart } from '@/lib/CartContext';
 
 export default function ProductDetail() {
   const { handle } = useParams();
   const { t } = useLanguage();
+  const { addItem } = useCart();
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState(0);
+  const [added, setAdded] = useState(false);
 
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['products-all'],
@@ -138,21 +141,21 @@ export default function ProductDetail() {
 
           {/* CTA */}
           <div className="flex flex-col gap-2">
-            {(() => {
-              const gelatoVariantId = currentVariant?.gelatoVariantId;
-              const gelatoLinks = d.gelatoOrderLinks || {};
-              const orderUrl = gelatoVariantId && gelatoLinks[gelatoVariantId]
-                ? gelatoLinks[gelatoVariantId]
-                : null;
-
-              return orderUrl ? (
-                <a href={orderUrl} target="_blank" rel="noreferrer" className="w-full">
-                  <Button size="lg" className="w-full font-semibold">
-                    🛒 Commander
-                  </Button>
-                </a>
-              ) : null;
-            })()}
+            <Button
+              size="lg"
+              className="w-full font-semibold"
+              onClick={async () => {
+                await addItem(d, selectedVariant);
+                setAdded(true);
+                setTimeout(() => setAdded(false), 2000);
+              }}
+            >
+              {added ? (
+                <><Check className="w-4 h-4 mr-2" /> Ajouté au panier !</>
+              ) : (
+                <><ShoppingBag className="w-4 h-4 mr-2" /> Ajouter au panier</>
+              )}
+            </Button>
           </div>
 
           {/* Description */}
