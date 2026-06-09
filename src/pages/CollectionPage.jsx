@@ -44,11 +44,14 @@ function getCollectionsByHandle(productHandle, productTitle) {
 
 const COLLECTION_LABELS = {
   'mugs-le-coeur-manifeste': 'Mugs "Cœur de Lutte"',
+  'posters-le-coeur-manifeste': 'Posters "Cœur de Lutte"',
   'posters-coeur-de-lutte': 'Posters "Cœur de Lutte"',
   'mugs-heart-of-protest': 'Mugs "Heart of Protest"',
   'posters-heart-of-protest': 'Posters "Heart of Protest"',
   'vulva-la-revolution-fr': 'Mugs "Vulva la Révolution" FR',
   'posters-vulva-la-revolution-fr': 'Posters "Vulva la Révolution" FR',
+  'mugs-vulva-la-revolution-francais': 'Mugs "Vulva la Révolution" Français',
+  'posters-vulva-la-revolution-francais': 'Posters "Vulva la Révolution" Français',
   'vulva-la-revolution': 'Mugs "Vulva la Revolution" EN',
   'posters-vulva-la-revolution': 'Posters "Vulva la Revolution" EN',
 };
@@ -60,7 +63,7 @@ export default function CollectionPage() {
 
   const { data: allProducts = [], isLoading: productsLoading } = useQuery({
     queryKey: ['products-all'],
-    queryFn: () => base44.entities.Product.list('-createdAt', 200),
+    queryFn: () => base44.entities.Product.list('-createdAt', 500),
   });
 
   const { data: collections = [] } = useQuery({
