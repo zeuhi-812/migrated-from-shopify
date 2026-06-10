@@ -4,17 +4,22 @@ import { useCart } from '@/lib/CartContext';
 import { Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
 import { useState } from 'react';
 import { createCheckout } from '@/functions/createCheckout';
+import CheckoutForm from './CheckoutForm';
 
 export default function CartDrawer({ open, onClose }) {
-  const { items, totalItems, totalPrice, updateQuantity, removeItem } = useCart();
+  const { items, totalItems, totalPrice, updateQuantity, removeItem, sessionId } = useCart();
+  const [step, setStep] = useState('cart'); // 'cart' | 'form'
   const [loading, setLoading] = useState(false);
 
-  const handleCheckout = async () => {
+  const handleCheckoutSubmit = async ({ form, appliedPromo, discountedTotal }) => {
     setLoading(true);
     const res = await createCheckout({
-      sessionId: localStorage.getItem('cart_session_id'),
+      sessionId,
       successUrl: `${window.location.origin}/commande-confirmee`,
       cancelUrl: `${window.location.origin}/panier`,
+      customerInfo: form,
+      promoCode: appliedPromo?.code || null,
+      discountedTotal,
     });
     if (res.data?.url) {
       window.location.href = res.data.url;
@@ -22,17 +27,33 @@ export default function CartDrawer({ open, onClose }) {
     setLoading(false);
   };
 
+  // Reset step when drawer closes
+  const handleOpenChange = (val) => {
+    if (!val) setStep('cart');
+    onClose();
+  };
+
   return (
-    <Sheet open={open} onOpenChange={onClose}>
+    <Sheet open={open} onOpenChange={handleOpenChange}>
       <SheetContent className="w-full sm:max-w-md flex flex-col">
         <SheetHeader>
           <SheetTitle className="font-heading uppercase flex items-center gap-2">
             <ShoppingBag className="w-5 h-5" />
-            Mon panier {totalItems > 0 && <span className="text-primary">({totalItems})</span>}
+            {step === 'cart'
+              ? <>Mon panier {totalItems > 0 && <span className="text-primary">({totalItems})</span>}</>
+              : 'Informations de livraison'
+            }
           </SheetTitle>
         </SheetHeader>
 
-        {items.length === 0 ? (
+        {step === 'form' ? (
+          <CheckoutForm
+            totalPrice={totalPrice}
+            onBack={() => setStep('cart')}
+            onSubmit={handleCheckoutSubmit}
+            loading={loading}
+          />
+        ) : items.length === 0 ? (
           <div className="flex-1 flex flex-col items-center justify-center gap-4 text-muted-foreground">
             <ShoppingBag className="w-16 h-16 opacity-20" />
             <p className="text-sm">Votre panier est vide</p>
@@ -92,12 +113,11 @@ export default function CartDrawer({ open, onClose }) {
               </div>
               <p className="text-xs text-muted-foreground">Livraison calculée à l'étape suivante</p>
               <Button
-                onClick={handleCheckout}
-                disabled={loading}
+                onClick={() => setStep('form')}
                 size="lg"
                 className="w-full font-semibold"
               >
-                {loading ? 'Redirection...' : 'Passer la commande'}
+                Passer la commande
               </Button>
             </div>
           </>

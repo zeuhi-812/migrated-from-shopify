@@ -37,9 +37,17 @@ Deno.serve(async (req) => {
       const gelatoApiKey = Deno.env.get('PANCARTVISTE_API_KEY');
       const gelatoStoreId = Deno.env.get('CLIENT_ID');
 
-      const shippingAddress = session.shipping_details?.address || session.customer_details?.address;
-      const customerName = session.customer_details?.name || 'Client';
+      const meta = session.metadata || {};
+      const customerName = `${meta.firstName || ''} ${meta.lastName || ''}`.trim() || session.customer_details?.name || 'Client';
       const customerEmail = session.customer_details?.email || '';
+      // Use metadata address (collected in our form) or fall back to Stripe shipping
+      const shippingAddress = meta.shippingLine1 ? {
+        line1: meta.shippingLine1,
+        line2: meta.shippingLine2 || '',
+        city: meta.shippingCity,
+        postal_code: meta.shippingPostCode,
+        country: meta.shippingCountry || 'FR',
+      } : (session.shipping_details?.address || session.customer_details?.address);
 
       // Build Gelato order items
       const orderItems = [];

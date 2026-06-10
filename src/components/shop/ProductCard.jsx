@@ -8,8 +8,25 @@ export default function ProductCard({ product }) {
   const images = product.images || [];
   const firstImage = images[0]?.url;
   const secondImage = images[1]?.url;
-  const price = product.variants?.[0]?.price;
-  const formattedPrice = price ? `${parseFloat(price).toFixed(2).replace('.', ',')} €` : null;
+  // For posters: show the lowest price among 13x18 variants; otherwise show first variant price
+  const isPoster = (product.productType || '').toLowerCase().includes('poster') ||
+    (product.handle || '').toLowerCase().includes('poster');
+
+  let displayPrice = null;
+  if (isPoster && product.variants?.length > 0) {
+    const size13x18Variants = product.variants.filter(v =>
+      (v.title || '').includes('13') || (v.title || '').toLowerCase().includes('13x18')
+    );
+    const pool = size13x18Variants.length > 0 ? size13x18Variants : product.variants;
+    const prices = pool.map(v => parseFloat(v.price)).filter(p => !isNaN(p) && p > 0);
+    if (prices.length > 0) displayPrice = Math.min(...prices);
+  } else {
+    displayPrice = parseFloat(product.variants?.[0]?.price) || null;
+  }
+
+  const formattedPrice = displayPrice
+    ? `${isPoster ? 'à partir de ' : ''}${displayPrice.toFixed(2).replace('.', ',')} €`
+    : null;
 
   return (
     <Link

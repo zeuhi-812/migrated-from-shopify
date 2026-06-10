@@ -28,6 +28,19 @@ export default function ProductDetail() {
 
   const d = product?.data || product;
 
+  const isPoster = (d?.productType || '').toLowerCase().includes('poster') ||
+    (d?.handle || '').toLowerCase().includes('poster');
+
+  const variants = useMemo(() => {
+    const raw = d?.variants || [];
+    if (!isPoster) return raw;
+    return [...raw].sort((a, b) => {
+      const numA = parseInt((a.title || '').match(/\d+/)?.[0] || '9999');
+      const numB = parseInt((b.title || '').match(/\d+/)?.[0] || '9999');
+      return numA - numB;
+    });
+  }, [d?.variants, isPoster]);
+
   if (isLoading) {
     return (
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -52,8 +65,7 @@ export default function ProductDetail() {
     );
   }
 
-  const images = d.images || [];
-  const variants = d.variants || [];
+  const images = d?.images || [];
   const currentVariant = variants[selectedVariant] || variants[0];
   const price = currentVariant?.price ? `${parseFloat(currentVariant.price).toFixed(2).replace('.', ',')} €` : null;
 
