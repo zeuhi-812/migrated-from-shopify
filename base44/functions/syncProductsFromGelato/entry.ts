@@ -67,7 +67,7 @@ Deno.serve(async (req) => {
     // Optional: startIndex to resume from a specific product (default 0)
     const body = await req.json().catch(() => ({}));
     const startIndex = body.startIndex || 0;
-    const batchSize = body.batchSize || 30; // process 30 products at a time
+    const batchSize = body.batchSize || 10; // process 10 products at a time
 
     const headers = { 'X-API-KEY': API_KEY, 'Content-Type': 'application/json' };
 
@@ -139,8 +139,8 @@ Deno.serve(async (req) => {
 
     for (const gp of productsBatch) {
       i++;
-      // Delay every 5 products to avoid rate limiting
-      if (i % 5 === 0) await new Promise(r => setTimeout(r, 600));
+      // Delay every 3 products to avoid rate limiting
+      if (i % 3 === 0) await new Promise(r => setTimeout(r, 1000));
       const productId = gp.id;
       const productType = detectProductType(gp.title, gp.variants);
 
