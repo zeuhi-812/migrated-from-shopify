@@ -12,9 +12,9 @@ export default function ProductDetail() {
   const { handle } = useParams();
   const { t } = useLanguage();
   const { addItem } = useCart();
-  const [selectedImage, setSelectedImage] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [added, setAdded] = useState(false);
+  const [manualImageOffset, setManualImageOffset] = useState(0);
 
   const { data: productList = [], isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -26,6 +26,8 @@ export default function ProductDetail() {
 
   const isPoster = (d?.productType || '').toLowerCase().includes('poster') ||
     (d?.handle || '').toLowerCase().includes('poster');
+  const isMug = (d?.productType || '').toLowerCase().includes('mug') ||
+    (d?.title || '').toLowerCase().includes('mug');
 
   const variants = useMemo(() => {
     const raw = d?.variants || [];
@@ -36,6 +38,28 @@ export default function ProductDetail() {
       return numA - numB;
     });
   }, [d?.variants, isPoster]);
+
+  const images = d?.images || [];
+
+  // For mugs: detect color from variant title and find first matching image index
+  const getColorFromVariant = (variantTitle) => {
+    const t = (variantTitle || '').toLowerCase();
+    if (t.includes('yellow') || t.includes('jaune')) return 'yellow';
+    if (t.includes('red') || t.includes('rouge')) return 'red';
+    if (t.includes('black') || t.includes('noir')) return 'black';
+    if (t.includes('blue') || t.includes('bleu')) return 'blue';
+    if (t.includes('green') || t.includes('vert')) return 'green';
+    if (t.includes('pink') || t.includes('rose')) return 'pink';
+    return null;
+  };
+
+  const selectedImageIndex = useMemo(() => {
+    if (!isMug || images.length === 0) return 0;
+    const color = getColorFromVariant(variants[selectedVariant]?.title);
+    if (!color) return 0;
+    const idx = images.findIndex(img => (img.color || img.altText || '').toLowerCase().includes(color));
+    return idx >= 0 ? idx : 0;
+  }, [selectedVariant, variants, images, isMug]);
 
   if (isLoading) {
     return (
@@ -61,12 +85,18 @@ export default function ProductDetail() {
     );
   }
 
-  const images = d?.images || [];
+  const displayedImageIndex = isMug ? (selectedImageIndex + manualImageOffset + images.length) % images.length : (manualImageOffset + images.length) % images.length;
+
   const currentVariant = variants[selectedVariant] || variants[0];
   const price = currentVariant?.price ? `${parseFloat(currentVariant.price).toFixed(2).replace('.', ',')} €` : null;
 
-  const prevImage = () => setSelectedImage(i => (i - 1 + images.length) % images.length);
-  const nextImage = () => setSelectedImage(i => (i + 1) % images.length);
+  const handleVariantSelect = (i) => {
+    setSelectedVariant(i);
+    setManualImageOffset(0);
+  };
+
+  const prevImage = () => setManualImageOffset(o => o - 1);
+  const nextImage = () => setManualImageOffset(o => o + 1);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -83,9 +113,9 @@ export default function ProductDetail() {
         {/* Images */}
         <div className="space-y-3">
           <div className="relative aspect-square rounded-xl overflow-hidden bg-muted">
-            {images[selectedImage]?.url ? (
+            {images[displayedImageIndex]?.url ? (
               <img
-                src={images[selectedImage].url}
+                src={images[displayedImageIndex].url}
                 alt={d.title}
                 className="w-full h-full object-cover"
               />
@@ -111,8 +141,8 @@ export default function ProductDetail() {
               {images.map((img, i) => (
                 <button
                   key={i}
-                  onClick={() => setSelectedImage(i)}
-                  className={`flex-shrink-0 w-16 h-16 rounded-md overflow-hidden border-2 transition-colors ${i === selectedImage ? 'border-primary' : 'border-transparent'}`}
+                  onClick={() => setManualImageOffset(i - selectedImageIndex)}
+                  className={`flex-shrink-0 w-16 h-16 rounded-md overflow-hidden border-2 transition-colors ${i === displayedImageIndex ? 'border-primary' : 'border-transparent'}`}
                 >
                   <img src={img.url} alt="" className="w-full h-full object-cover" />
                 </button>
@@ -137,7 +167,7 @@ export default function ProductDetail() {
                 {variants.map((v, i) => (
                   <button
                     key={i}
-                    onClick={() => setSelectedVariant(i)}
+                    onClick={() => handleVariantSelect(i)}
                     className={`px-3 py-1.5 text-sm rounded-md border transition-colors ${i === selectedVariant ? 'border-primary bg-primary text-primary-foreground' : 'border-border hover:border-primary/50'}`}
                   >
                     {v.title}
