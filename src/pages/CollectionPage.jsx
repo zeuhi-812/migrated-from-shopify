@@ -48,6 +48,7 @@ const COLLECTION_LABELS = {
   'posters-coeur-de-lutte': 'Posters "Cœur de Lutte"',
   'mugs-heart-of-protest': 'Mugs "Heart of Protest"',
   'posters-heart-of-protest': 'Posters "Heart of Protest"',
+  'mugs-coeur-de-lutte': 'Mugs "Cœur de Lutte"',
   'vulva-la-revolution-fr': 'Mugs "Vulva la Révolution" FR',
   'posters-vulva-la-revolution-fr': 'Posters "Vulva la Révolution" FR',
   'mugs-vulva-la-revolution-francais': 'Mugs "Vulva la Révolution" Français',
