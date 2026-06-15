@@ -46,10 +46,10 @@ export default function ProductDetail() {
     const t = (variantTitle || '').toLowerCase();
     if (t.includes('yellow') || t.includes('jaune')) return 'yellow';
     if (t.includes('red') || t.includes('rouge')) return 'red';
-    if (t.includes('black') || t.includes('noir')) return 'black';
-    if (t.includes('blue') || t.includes('bleu')) return 'blue';
-    if (t.includes('green') || t.includes('vert')) return 'green';
     if (t.includes('pink') || t.includes('rose')) return 'pink';
+    if (t.includes('blue') || t.includes('bleu')) return 'blue';
+    if (t.includes('black') || t.includes('noir')) return 'black';
+    if (t.includes('green') || t.includes('vert')) return 'green';
     return null;
   };
 
