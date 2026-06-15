@@ -16,16 +16,12 @@ export default function ProductDetail() {
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [added, setAdded] = useState(false);
 
-  const { data: products = [], isLoading } = useQuery({
-    queryKey: ['products-all'],
-    queryFn: () => base44.entities.Product.list('-createdAt', 200),
+  const { data: productList = [], isLoading } = useQuery({
+    queryKey: ['product', handle],
+    queryFn: () => base44.entities.Product.filter({ handle }),
   });
 
-  const product = useMemo(() =>
-    products.find(p => (p.data || p).handle === handle),
-    [products, handle]
-  );
-
+  const product = productList[0];
   const d = product?.data || product;
 
   const isPoster = (d?.productType || '').toLowerCase().includes('poster') ||
