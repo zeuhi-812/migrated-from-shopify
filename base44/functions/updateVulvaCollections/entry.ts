@@ -69,10 +69,17 @@ function sceneImages(name) {
     // ===== FRAISE / STRAWBERRY - Vulva =====
     case 'fraise_vulva_couple':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b1da722af_MugVulvaRevolutionENCarmenRicoJaune1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7a7d54bad_MugVulvaRevolutionENCarmenRicoVert1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d4f1fe26f_MugVulvaRevolutionENCarmenRicoRose1.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/db817ec21_MugVulvaRevolutionENCarmenRicoNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5063ce2a7_MugVulvaRevolutionENCarmenRicoJaune1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9642ff555_MugVulvaRevolutionENCarmenRicoJaune2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9b2be7ae2_MugVulvaRevolutionENCarmenRicoJaune3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7df0ba0f1_MugVulvaRevolutionENCarmenRicoVert1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/daa5b007a_MugVulvaRevolutionENCarmenRicoVert2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5f626e693_MugVulvaRevolutionENCarmenRicoVert4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/bcfa466bf_MugVulvaRevolutionENCarmenRicoRose1.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/49a8e3620_MugVulvaRevolutionENCarmenRicoRose2.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e619501eb_MugVulvaRevolutionENCarmenRicoRose5.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a4c8474cd_MugVulvaRevolutionENCarmenRicoNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/17849cc9d_MugVulvaRevolutionENCarmenRicoNoir2.jpg', color: 'black' },
       ];
 
     // ===== FRAISE / STRAWBERRY - Amour/Make Love =====
@@ -112,6 +119,52 @@ function sceneImages(name) {
         { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e4edb7142_SeedMugPepperGreen1.jpg', color: 'green' },
         { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/99ac83b8e_SeedMugPepperRed1.jpg', color: 'red' },
         { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/13b5a5960_SeedMugPepperBlack1.jpg', color: 'black' },
+      ];
+
+    // ===== NIÇOISE =====
+    case 'nicoise_tomate':
+      // Same Tomate Vulva design, Niçoise version
+      return [
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7909fef31_MugRevolutionTomatoeYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d9a213daf_MugRevolutionTomatoeYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/44ebe0422_MugRevolutionTomatoeYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/482762a7e_MugRevolutionTomatoeGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2bd636cbc_MugRevolutionTomatoeGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f303a4a46_MugRevolutionTomatoeGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f058acdb8_MugRevolutionTomatoeRed1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f4d1f3406_MugRevolutionTomatoeRed2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/086271ad8_MugRevolutionTomatoeRed5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/95324bdfe_MugRevolutionTomatoeBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/06901e827_MugRevolutionTomatoeBlack2.jpg', color: 'black' },
+      ];
+    case 'nicoise_fraise':
+      return [
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/200e8e05b_MugNicoiseShakiraJaune1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/91530608d_MugNicoiseShakiraJaune2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/12716d4b6_MugNicoiseShakiraJaune3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b18eafffc_MugNicoiseShakiraVert1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/095d28253_MugNicoiseShakiraVert2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/168378267_MugNicoiseShakiraVert4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d5ed99eeb_MugNicoiseShakiraRouge1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/1a0a7fc7a_MugNicoiseShakiraRouge2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/8878d78dc_MugNicoiseShakiraRouge5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/217c84795_MugNicoiseShakiraNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e63f32d43_MugNicoiseShakiraNoir2.jpg', color: 'black' },
+      ];
+    case 'nicoise_fraise_carmen':
+      // Same Fraise Vulva couple design, Niçoise version
+      return [
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5063ce2a7_MugVulvaRevolutionENCarmenRicoJaune1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9642ff555_MugVulvaRevolutionENCarmenRicoJaune2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9b2be7ae2_MugVulvaRevolutionENCarmenRicoJaune3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7df0ba0f1_MugVulvaRevolutionENCarmenRicoVert1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/daa5b007a_MugVulvaRevolutionENCarmenRicoVert2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5f626e693_MugVulvaRevolutionENCarmenRicoVert4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/bcfa466bf_MugVulvaRevolutionENCarmenRicoRose1.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/49a8e3620_MugVulvaRevolutionENCarmenRicoRose2.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e619501eb_MugVulvaRevolutionENCarmenRicoRose5.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a4c8474cd_MugVulvaRevolutionENCarmenRicoNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/17849cc9d_MugVulvaRevolutionENCarmenRicoNoir2.jpg', color: 'black' },
       ];
 
     default: return [];
@@ -158,6 +211,9 @@ const MATCH_RULES = [
   { keywords: ['graines', 'mug'], notKeywords: ['poster'], col: 'vulva-la-revolution-fr', sort: 10, scene: 'graines' },
   { keywords: ['vulva', 'navet', 'mug'], notKeywords: ['couple', 'prêts'], col: 'vulva-la-revolution-fr', sort: 11, scene: 'navet_vulva_solo' },
   { keywords: ['prêts', 'woke', 'navet', 'mug'], col: 'vulva-la-revolution-fr', sort: 12, scene: 'navet_woke_fr' },
+  { keywords: ['niçoise', 'tomate', 'mug'], notKeywords: ['fraise'], col: 'vulva-la-revolution-fr', sort: 13, scene: 'nicoise_tomate' },
+  { keywords: ['niçoise', 'carmen', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 14, scene: 'nicoise_fraise_carmen' },
+  { keywords: ['niçoise', 'fraise', 'mug'], notKeywords: ['carmen'], col: 'vulva-la-revolution-fr', sort: 15, scene: 'nicoise_fraise' },
 
   // ===== MUG EN (vulva-la-revolution) =====
   { keywords: ['vulva', 'tomatoe', 'mug'], notKeywords: ['strawberr', 'turnip', 'seeds', 'woke', 'carmen', 'shakira'], col: 'vulva-la-revolution', sort: 1, scene: 'tomate_vulva' },
@@ -205,6 +261,9 @@ const MATCH_RULES = [
   { keywords: ['vulva', 'navet', 'poster'], notKeywords: ['couple', 'prêts', 'anti'], col: 'posters-vulva-la-revolution-fr', sort: 28 },
   { keywords: ['anti patriarcat', 'navet', 'poster'], col: 'posters-vulva-la-revolution-fr', sort: 29 },
   { keywords: ['prêts', 'woke', 'navet', 'poster'], col: 'posters-vulva-la-revolution-fr', sort: 30 },
+  { keywords: ['niçoise', 'tomate', 'poster'], col: 'posters-vulva-la-revolution-fr', sort: 31 },
+  { keywords: ['niçoise', 'carmen', 'fraise', 'poster'], col: 'posters-vulva-la-revolution-fr', sort: 32 },
+  { keywords: ['niçoise', 'fraise', 'poster'], notKeywords: ['carmen'], col: 'posters-vulva-la-revolution-fr', sort: 33 },
 
   // ===== POSTER EN (posters-vulva-la-revolution) =====
   { keywords: ['vulva', 'tomatoe', 'poster'], notKeywords: ['turnip', 'strawberr', 'couple'], col: 'posters-vulva-la-revolution', sort: 1 },
