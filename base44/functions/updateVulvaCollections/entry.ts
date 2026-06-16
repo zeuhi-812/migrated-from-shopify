@@ -11,16 +11,20 @@ function sceneImages(name) {
     // ===== NAVET / TURNIP - FR =====
     case 'navet_vulva_solo_fr':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/ddfe3339b_MugRevolutionTomateJauneFR1.jpg', color: 'yellow' }, // reused with navet FR Jaune1
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/16869308e_MugRevolutionNavetFRVert1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/59b54e255_MugRevolutionNavetFRVert2.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/86e072f43_MugRevolutionNavetFRVert4.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9ec17bb29_MugRevolutionNavetFRRose1.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9760fb4e9_MugRevolutionNavetFRRose2.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e300da16b_MugRevolutionNavetFRRose3.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/0972e4fc3_MugRevolutionNavetFRNoir1.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/96641046d_MugRevolutionNavetFRNoir2.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f058eba41_MugRevolutionNavetFRNoir4.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b6eb94f41_MugRevolutionNavetFRJaune1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/da4ff82d7_MugRevolutionNavetFRJaune2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/210897077_MugRevolutionNavetFRJaune3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b030a6ee6_MugRevolutionNavetFRVert1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/72dd96d00_MugRevolutionNavetFRVert2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f25f876ee_MugRevolutionNavetFRVert4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/771dc7c9a_MugRevolutionNavetFRRose1.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2a9d5530a_MugRevolutionNavetFRRose2.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/23eac302b_MugRevolutionNavetFRRose3.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/fb252db41_MugRevolutionNavetFRRose5.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/c0d3f26d4_MugRevolutionNavetFRNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e898b7ad1_MugRevolutionNavetFRNoir2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2ef5535d4_MugRevolutionNavetFRNoir3.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/150742c08_MugRevolutionNavetFRNoir4.jpg', color: 'black' },
       ];
     case 'navet_woke_fr_new':
       return [
@@ -175,7 +179,43 @@ function sceneImages(name) {
         { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/17849cc9d_MugVulvaRevolutionENCarmenRicoNoir2.jpg', color: 'black' },
       ];
 
-    // ===== FRAISE / STRAWBERRY - Faites l'Amour FR =====
+    // ===== FRAISE / STRAWBERRY - Faites l'Amour FR Carmen & Shakira =====
+    case 'fraise_amour_carmen_shakira_fr':
+      return [
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3f87f186f_MugFaitesAmourCarmenShakiraFRJaune1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/817b221e4_MugFaitesAmourCarmenShakiraFRJaune2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5ceafeff3_MugFaitesAmourCarmenShakiraFRJaune3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/38ac672f4_MugFaitesAmourCarmenShakiraFRVert1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/4105fbd12_MugFaitesAmourCarmenShakiraFRVert2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/386a65490_MugFaitesAmourCarmenShakiraFRVert4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2736b3de0_MugFaitesAmourCarmenShakiraFRRouge1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e5cedae1d_MugFaitesAmourCarmenShakiraFRRouge2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5d9f51234_MugFaitesAmourCarmenShakiraFRRouge3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b0d9906ed_MugFaitesAmourCarmenShakiraFRRouge5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e990eecba_MugFaitesAmourCarmenShakiraFRNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/79301b7e7_MugFaitesAmourCarmenShakiraFRNoir2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/288a2e1cc_MugFaitesAmourCarmenShakiraFRNoir4.jpg', color: 'black' },
+      ];
+
+    // ===== FRAISE / STRAWBERRY - Faites l'Amour FR Rico & Tonio =====
+    case 'fraise_amour_rico_tonio_fr':
+      return [
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7b88515fd_MugFaitesAmourRicoTonioFRJaune1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/4451e2a6c_MugFaitesAmourRicoTonioFRJaune2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f95141043_MugFaitesAmourRicoTonioFRJaune3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/8960a89a8_MugFaitesAmourRicoTonioFRVert1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/6535b65ce_MugFaitesAmourRicoTonioFRVert2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/65f68284e_MugFaitesAmourRicoTonioFRVert4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3e1323f2f_MugFaitesAmourRicoTonioFRRouge1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3769b70c4_MugFaitesAmourRicoTonioFRRouge2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/efbaa7a86_MugFaitesAmourRicoTonioFRRouge3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/41ff9a51d_MugFaitesAmourRicoTonioFRRouge5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/69d4026fc_MugFaitesAmourRicoTonioFRNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/878a39d60_MugFaitesAmourRicoTonioFRNoir2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f70df5f84_MugFaitesAmourRicoTonioFRNoir4.jpg', color: 'black' },
+      ];
+
+    // ===== FRAISE / STRAWBERRY - Faites l'Amour FR Carmen & Tonio =====
     case 'fraise_amour_carmen_tonio_fr':
       return [
         { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a1524873c_MugFaitesAmourCarmenTonioJaune1.jpg', color: 'yellow' },
@@ -364,9 +404,9 @@ const MATCH_RULES = [
   { keywords: ['vulva', 'carmen', 'tonio', 'fraise', 'mug'], notKeywords: ['amour', 'faites', 'shakira', 'rico'], col: 'vulva-la-revolution-fr', sort: 3, scene: 'fraise_vulva_carmen_tonio_fr' },
   { keywords: ['vulva', 'shakira', 'rico', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 4, scene: 'fraise_vulva_shakira_rico_fr' },
   { keywords: ['faites', 'amour', 'carmen', 'tonio', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 5, scene: 'fraise_amour_carmen_tonio_fr' },
-  { keywords: ['faites', 'amour', 'carmen', 'shakira', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 6, scene: 'fraise_amour_carmen_tonio_fr' },
+  { keywords: ['faites', 'amour', 'carmen', 'shakira', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 6, scene: 'fraise_amour_carmen_shakira_fr' },
   { keywords: ['faites', 'amour', 'rico', 'shakira', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 7, scene: 'fraise_amour_rico_shakira_fr' },
-  { keywords: ['faites', 'amour', 'rico', 'tonio', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 8, scene: 'fraise_amour_carmen_tonio_fr' },
+  { keywords: ['faites', 'amour', 'rico', 'tonio', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 8, scene: 'fraise_amour_rico_tonio_fr' },
   { keywords: ['faites', 'amour', 'lola', 'almarita', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 9, scene: 'fraise_amour_lola_almarita_fr' },
   { keywords: ['graines', 'mug'], notKeywords: ['poster'], col: 'vulva-la-revolution-fr', sort: 10, scene: 'graines_fr' },
   { keywords: ['vulva', 'navet', 'mug'], notKeywords: ['couple', 'prêts'], col: 'vulva-la-revolution-fr', sort: 11, scene: 'navet_vulva_solo_fr' },
