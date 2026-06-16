@@ -513,12 +513,12 @@ Deno.serve(async (req) => {
 
   const allProducts = await base44.asServiceRole.entities.Product.list('created_date', 500);
   
-  // Ne traiter que les mugs et posters (ignore les autres types)
+  // Ne traiter que les mugs (la synchro posters est déjà correcte)
   const relevantProducts = allProducts.filter(p => {
     const d = p;
     const pt = (d.productType || '').toLowerCase();
     const h = (d.handle || '').toLowerCase();
-    return pt.includes('mug') || pt.includes('poster') || h.includes('mug') || h.includes('poster');
+    return pt.includes('mug') || h.includes('mug');
   });
 
   const updated = [];
