@@ -103,6 +103,10 @@
           },
           "altText": {
             "type": "string"
+          },
+          "color": {
+            "type": "string",
+            "description": "Filter color (yellow, green, red, pink, black, blue)"
           }
         }
       }
