@@ -9,6 +9,11 @@ function norm(s) {
     .toLowerCase().replace(/\s+/g, ' ').trim();
 }
 
+// French words indicating the poster is FR, not EN
+const FR_WORDS = ['coeur', 'lutte', 'resiste', 'resister', 'rallume', 'fondu', 'tripes',
+  'eclate', 'eclaté', 'aimer', 'genereuse', 'beurre', 'motte', 'solidaires',
+  'politique', 'flamme', 'cendres', 'choeur', 'cle', 'pique'];
+
 const HEART_TITLES = [
   'Love Tune',              // 1
   'Love Resists',           // 2
@@ -17,29 +22,27 @@ const HEART_TITLES = [
   'Pick my Love',           // 5
   'My Heart Resists',       // 6
   'Pick my Heart',          // 7
-  'Pick my Resistance',     // 8
+  'Resist my Heart',        // 8
   'Love Freely',            // 9
   'To Love is to Resist',   // 10
   'Solidarity',             // 11
-  'Solidarity Resists',     // 12
+  'Solidarity Resist',      // 12
   'Generous Heart',         // 13
-  'Generous Artichoke',     // 14
+  'Tender Artichoke',       // 14
   'Generous Resistance',    // 15
   'Tender Heart',           // 16
-  'Resistant Artichoke',    // 17
-  'Heart of Protest',       // 18
-  'Resisting Guts',         // 19
+  'Resistant Heartichoke',  // 17
+  'Butter Love',            // 18
+  'Melted Resistance',      // 19
   'Butter Heart',           // 20
-  'Melted Resistance',      // 21
-  'Butter Love',            // 22
-  'Buttered Resistance',    // 23
+  'Butter Heart',           // 21
+  'Heart of Protest',       // 22
+  'Resisting Guts',         // 23
   'Shattered Heart',        // 24
   'Shattered Resistance',   // 25
   'Spark the Flame',        // 26
   'Ashes Resistance',       // 27
 ];
-
-const HEART_NORM_SET = new Set(HEART_TITLES.map(norm));
 
 Deno.serve(async (req) => {
   const base44 = createClientFromRequest(req);
@@ -50,52 +53,95 @@ Deno.serve(async (req) => {
 
   const allProducts = await base44.asServiceRole.entities.Product.list('-created_date', 500);
 
+  // Collect all posters
+  const posters = allProducts.filter(p => {
+    const n = norm(p.title);
+    return n.includes('poster') || (p.productType || '').toLowerCase().includes('poster');
+  });
+
+  // Determine if a poster is French
+  function isFrench(product) {
+    const n = norm(product.title);
+    const hasFRCol = (product.collections || []).some(c => c.includes('fr') || c.includes('coeur') || c.includes('lutte'));
+    const hasFRWord = FR_WORDS.some(w => n.includes(w));
+    return hasFRCol || hasFRWord;
+  }
+
   const removed = [];
   const updated = [];
+  const usedIds = new Set();
 
-  // Process all products
-  for (const product of allProducts) {
-    const n = norm(product.title);
-    const currentCols = product.collections || [];
-    const hasCol = currentCols.includes(COL);
+  // Count how many times each title appears (for position 20+21 both "Butter Heart")
+  const titleCounts = {};
+  for (const t of HEART_TITLES) {
+    const nt = norm(t);
+    titleCounts[nt] = (titleCounts[nt] || 0) + 1;
+  }
+  const titleUsed = {}; // track how many times we've used each title
 
-    // Only process posters
-    const isPoster = n.includes('poster') || (product.productType || '').toLowerCase().includes('poster');
-    
-    // Check if product title contains one of the heart titles
-    const matchedIdx = isPoster ? HEART_TITLES.findIndex(t => n.includes(norm(t))) : -1;
-    if (matchedIdx >= 0) {
-      // This should be in the collection
-      const sortOrder = matchedIdx + 1;
+  // For each position, find the best EN poster match (not French, not already used)
+  for (let i = 0; i < HEART_TITLES.length; i++) {
+    const targetNorm = norm(HEART_TITLES[i]);
+    const sortOrder = i + 1;
 
-      if (!hasCol || product.sortOrder !== sortOrder) {
-        const newCols = hasCol ? currentCols : [...currentCols, COL];
-        await base44.asServiceRole.entities.Product.update(product.id, {
-          ...product,
+    // Find all matching EN posters (not French, not used)
+    const candidates = posters.filter(p => {
+      if (usedIds.has(p.id)) return false;
+      if (isFrench(p)) return false;
+      return norm(p.title).includes(targetNorm);
+    });
+
+    // Prefer exact match: title without " Poster" suffix equals the target
+    candidates.sort((a, b) => {
+      const aExact = norm(a.title) === targetNorm + ' poster';
+      const bExact = norm(b.title) === targetNorm + ' poster';
+      if (aExact && !bExact) return -1;
+      if (!aExact && bExact) return 1;
+      return 0;
+    });
+
+    if (candidates.length > 0) {
+      const best = candidates[0];
+      usedIds.add(best.id);
+      titleUsed[targetNorm] = (titleUsed[targetNorm] || 0) + 1;
+
+      const currentCols = best.collections || [];
+      const newCols = currentCols.includes(COL) ? currentCols : [...currentCols, COL];
+      if (!currentCols.includes(COL) || best.sortOrder !== sortOrder) {
+        await base44.asServiceRole.entities.Product.update(best.id, {
+          ...best,
           collections: newCols,
           sortOrder,
         });
-        updated.push(`${sortOrder} | ${product.title}`);
+        updated.push(`${sortOrder} | ${best.title}`);
       }
-    } else if (hasCol) {
-      // Should NOT be in collection - remove it
-      const newCols = currentCols.filter(c => c !== COL);
-      await base44.asServiceRole.entities.Product.update(product.id, {
-        ...product,
-        collections: newCols,
-      });
-      removed.push(product.title);
+
+      // Remove extra candidates beyond what we need
+      const needed = titleCounts[targetNorm] || 1;
+      const usedSoFar = titleUsed[targetNorm] || 1;
+      // Only mark as duplicate if we already have enough for all positions of this title
+      // (This will be handled in the straggler pass at the end)
     }
 
-    // Small delay to avoid rate limits
     await new Promise(r => setTimeout(r, 80));
   }
 
-  // Check for missing titles (only among posters)
-  const posterTitles = allProducts
-    .filter(p => norm(p.title).includes('poster') || (p.productType || '').toLowerCase().includes('poster'))
-    .map(p => norm(p.title));
-  const notFound = HEART_TITLES.filter(t => !posterTitles.some(pt => pt.includes(norm(t))));
+  // Remove any remaining stragglers: posters in COL that aren't among the 27 used
+  for (const product of posters) {
+    if (usedIds.has(product.id)) continue;
+    const currentCols = product.collections || [];
+    if (currentCols.includes(COL)) {
+      const newCols = currentCols.filter(c => c !== COL);
+      await base44.asServiceRole.entities.Product.update(product.id, { ...product, collections: newCols });
+      removed.push(product.title);
+      await new Promise(r => setTimeout(r, 50));
+    }
+  }
+
+  // Check for missing titles
+  const enPosters = posters.filter(p => !isFrench(p));
+  const enPosterNorms = enPosters.map(p => norm(p.title));
+  const notFound = HEART_TITLES.filter(t => !enPosterNorms.some(pt => pt.includes(norm(t))));
 
   return Response.json({
     success: true,
