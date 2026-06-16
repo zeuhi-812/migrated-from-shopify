@@ -28,13 +28,20 @@ function sceneImages(name) {
       ];
     case 'navet_woke_fr_new':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/4240465d7_PretspourleWokeCoupleNavetMugRose1.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e531bfdb1_PretspourleWokeCoupleNavetMugVert1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/95b8abf9d_PretspourleWokeCoupleNavetMugVert2.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/353c7b0b5_PretspourleWokeCoupleNavetMugVert4.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/74d3a15b2_PretspourleWokeCoupleNavetMugNoir1.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f967eb17e_PretspourleWokeCoupleNavetMugNoir2.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/31ce7ad30_PretspourleWokeCoupleNavetMugNoir4.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a7596c085_PretspourleWokeCoupleNavetMugJaune1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7148364e8_PretspourleWokeCoupleNavetMugJaune2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f3b8a6275_PretspourleWokeCoupleNavetMugVert1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d5e3d54a6_PretspourleWokeCoupleNavetMugVert2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/81306eb25_PretspourleWokeCoupleNavetMugRose1.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/63d1ee257_PretspourleWokeCoupleNavetMugRose2.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/dc4537fa4_PretspourleWokeCoupleNavetMugNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7d40616b3_PretspourleWokeCoupleNavetMugNoir2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/45673079b_PretspourleWokeCoupleNavetMugJaune3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/877400f61_PretspourleWokeCoupleNavetMugVert4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5f7f3bdd5_PretspourleWokeCoupleNavetMugRose3.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/efdfd4a5c_PretspourleWokeCoupleNavetMugRose4.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b4575e970_PretspourleWokeCoupleNavetMugNoir3.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d4f901009_PretspourleWokeCoupleNavetMugNoir4.jpg', color: 'black' },
       ];
 
     // ===== NAVET / TURNIP - EN (legacy) =====
