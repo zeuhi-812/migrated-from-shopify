@@ -200,19 +200,19 @@ function sceneImages(name) {
     // ===== FRAISE / STRAWBERRY - Vulva EN Carmen+Rico (legacy) =====
     case 'fraise_vulva_couple':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2dcb2546b_MugRevolutionShakiraRicoYellowEN1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/97ed2eb65_MugRevolutionShakiraRicoYellowEN2.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a17cbfb31_MugRevolutionShakiraRicoYellowEN3.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/55103fd67_MugRevolutionShakiraRicoGreenEN1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b17792896_MugRevolutionShakiraRicoGreenEN2.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9e33ff612_MugRevolutionShakiraRicoGreenEN4.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/1b0ae48b1_MugRevolutionShakiraRicoRedEN1.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3f7a47f59_MugRevolutionShakiraRicoRedEN2.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/6b3b6879c_MugRevolutionShakiraRicoRedEN3.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/74013528b_MugRevolutionShakiraRicoRedEN5.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/cd32786bc_MugVulvaRevolutionShakiraRicoBlackEN1.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a8c6bb1d1_MugRevolutionShakiraRicoBlackEN2.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/91bcc545e_MugRevolutionShakiraRicoBlackEN4.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/404fda1d2_MugRevolutionCarmenTonioJaune1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5be8a8ece_MugRevolutionCarmenTonioJaune2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e57b5e93a_MugRevolutionCarmenTonioJaune3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7e8d9ea80_MugRevolutionCarmenTonioVert1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/16bed40ac_MugRevolutionCarmenTonioVert2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/22ca862ec_MugRevolutionCarmenTonioVert4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/8bab36fb7_MugRevolutionCarmenTonioRouge1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/cb90d69b1_MugRevolutionCarmenTonioRouge2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/09654d367_MugRevolutionCarmenTonioRouge3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/70336fa3c_MugRevolutionCarmenTonioRouge5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/326ebcfa9_MugRevolutionCarmenTonioNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a4c18dab6_MugRevolutionCarmenTonioNoir2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/feb7bad8e_MugRevolutionCarmenTonioNoir4.jpg', color: 'black' },
       ];
     case 'fraise_amour_carmen_tonio':
       return [
