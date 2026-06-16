@@ -83,9 +83,7 @@ export default function CollectionPage() {
     return allProducts
       .filter(p => {
         const d = p.data || p;
-        const cols = (d.collections && d.collections.length > 0)
-          ? d.collections
-          : getCollectionsByHandle(d.handle, d.title);
+        const cols = d.collections || [];
         return cols.includes(handle);
       })
       .sort((a, b) => {
