@@ -307,8 +307,8 @@ const MATCH_RULES = [
   },
 
   // MUG EN
-  { keywords: ['vulva', 'tomatoe', 'mug'], notKeywords: ['fraise', 'turnip', 'seeds', 'woke', 'make love', 'carmen', 'shakira'], col: 'vulva-la-revolution', sort: 1 },
-  { keywords: ['make love not war', 'tomatoe', 'mug'], col: 'vulva-la-revolution', sort: 2 },
+  { keywords: ['vulva', 'tomatoe', 'mug'], notKeywords: ['fraise', 'turnip', 'seeds', 'woke', 'carmen', 'shakira'], col: 'vulva-la-revolution', sort: 1 },
+  { keywords: ['make love', 'tomatoe', 'mug'], col: 'vulva-la-revolution', sort: 2 },
   { keywords: ['vulva', 'carmen', 'tonio', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 3,
     images: [
       { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/db817ec21_MugVulvaRevolutionENCarmenRicoNoir1.jpg', color: 'black' },
