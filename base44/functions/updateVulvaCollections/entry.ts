@@ -224,7 +224,7 @@ const MUG_EN = [
 const MATCH_RULES = [
   // MUG FR
   { keywords: ['vulva', 'tomate', 'mug', 'céramique'], notKeywords: ['fraise', 'navet', 'turnip', 'graines', 'woke', 'amour', 'guerre', 'niçoise', 'shakira', 'carmen', 'prêts'], col: 'vulva-la-revolution-fr', sort: 1 },
-  { keywords: ['faites', 'amour', 'tomate', 'mug'], notKeywords: ['fraise', 'navet'], col: 'vulva-la-revolution-fr', sort: 2 },
+  { keywords: ['faites', 'amour', 'tomate', 'mug'], notKeywords: ['fraise', 'navet', 'make love', 'not war'], col: 'vulva-la-revolution-fr', sort: 2 },
   { keywords: ['vulva', 'carmen', 'fraise', 'mug'], col: 'vulva-la-revolution-fr', sort: 3,
     images: [
       { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/db817ec21_MugVulvaRevolutionENCarmenRicoNoir1.jpg', color: 'black' },
@@ -307,8 +307,34 @@ const MATCH_RULES = [
   },
 
   // MUG EN
-  { keywords: ['vulva', 'tomatoe', 'mug'], notKeywords: ['fraise', 'turnip', 'seeds', 'woke', 'make love', 'carmen', 'shakira'], col: 'vulva-la-revolution', sort: 1 },
-  { keywords: ['make love not war', 'tomatoe', 'mug'], col: 'vulva-la-revolution', sort: 2 },
+  { keywords: ['vulva', 'tomatoe', 'mug'], notKeywords: ['fraise', 'turnip', 'seeds', 'woke', 'make love', 'carmen', 'shakira', 'faites', 'amour'], col: 'vulva-la-revolution', sort: 1,
+    images: [
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/95324bdfe_MugRevolutionTomatoeBlack1.jpg', color: 'black' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/06901e827_MugRevolutionTomatoeBlack2.jpg', color: 'black' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/482762a7e_MugRevolutionTomatoeGreen1.jpg', color: 'green' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2bd636cbc_MugRevolutionTomatoeGreen2.jpg', color: 'green' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f058acdb8_MugRevolutionTomatoeRed1.jpg', color: 'red' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f4d1f3406_MugRevolutionTomatoeRed2.jpg', color: 'red' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7909fef31_MugRevolutionTomatoeYellow1.jpg', color: 'yellow' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d9a213daf_MugRevolutionTomatoeYellow2.jpg', color: 'yellow' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f303a4a46_MugRevolutionTomatoeGreen4.jpg', color: 'green' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/086271ad8_MugRevolutionTomatoeRed5.jpg', color: 'red' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/44ebe0422_MugRevolutionTomatoeYellow3.jpg', color: 'yellow' },
+    ]
+  },
+  { keywords: ['make love not war', 'tomatoe', 'mug'], notKeywords: ['faites', 'amour'], col: 'vulva-la-revolution', sort: 2,
+    images: [
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/75e4df380_MugMakeLoveTomatoeGreen1.jpg', color: 'green' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/fd61bad41_MugMakeLoveTomatoeGreen2.jpg', color: 'green' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/95e6ea1ca_MugMakeLoveTomatoeRed1.jpg', color: 'red' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a043cfca0_MugMakeLoveTomatoeRed2.jpg', color: 'red' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/441e400a6_MugMakeLoveTomatoeYellow1.jpg', color: 'yellow' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5711356f1_MugMakeLoveTomatoeYellow2.jpg', color: 'yellow' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5129f4f5f_MugMakeLoveTomatoeGreen4.jpg', color: 'green' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/11f177af2_MugMakeLoveTomatoeRed5.jpg', color: 'red' },
+      { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f11d3cd8e_MugMakeLoveTomatoeYellow3.jpg', color: 'yellow' },
+    ]
+  },
   { keywords: ['vulva', 'carmen', 'tonio', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 3,
     images: [
       { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/db817ec21_MugVulvaRevolutionENCarmenRicoNoir1.jpg', color: 'black' },
