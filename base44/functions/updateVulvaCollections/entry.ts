@@ -512,11 +512,19 @@ Deno.serve(async (req) => {
   }
 
   const allProducts = await base44.asServiceRole.entities.Product.list('created_date', 500);
+  
+  // Ne traiter que les mugs et posters (ignore les autres types)
+  const relevantProducts = allProducts.filter(p => {
+    const d = p;
+    const pt = (d.productType || '').toLowerCase();
+    const h = (d.handle || '').toLowerCase();
+    return pt.includes('mug') || pt.includes('poster') || h.includes('mug') || h.includes('poster');
+  });
 
   const updated = [];
   const matched = new Set();
 
-  for (const product of allProducts) {
+  for (const product of relevantProducts) {
     const currentCols = product.collections || [];
 
     // Find matching rule
@@ -566,7 +574,7 @@ Deno.serve(async (req) => {
     updated.push(`${bestRule.sort} | ${product.title} → ${bestRule.col} [${bestRule.scene || 'no-img'}]`);
     matched.add(product.id);
 
-    await new Promise(r => setTimeout(r, 300));
+    await new Promise(r => setTimeout(r, 200));
   }
 
   return Response.json({ success: true, updatedCount: updated.length, updated });
