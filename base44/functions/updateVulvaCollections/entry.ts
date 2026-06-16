@@ -47,17 +47,35 @@ function sceneImages(name) {
     // ===== NAVET / TURNIP - EN (legacy) =====
     case 'navet_vulva_solo':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/13473ba2a_MugVulvalaRevolutionTurnip1Jaune.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5869963d1_MugVulvalaRevolutionTurnip1Vert.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/1006b44b7_MugVulvalaRevolutionTurnip1Rose.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/0b7ad430c_MugVulvalaRevolutionTurnip1Noir.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7c12486ee_MugVulvalaRevolutionTurnipYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/32e2c9315_MugVulvalaRevolutionTurnipYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/24c39ccd1_MugVulvalaRevolutionTurnipYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/910607643_MugVulvalaRevolutionTurnipGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/bde552e51_MugVulvalaRevolutionTurnipGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/91db0eff7_MugVulvalaRevolutionTurnipGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/fc42d82a8_MugVulvalaRevolutionTurnipPink1.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/13c1e1cb4_MugVulvalaRevolutionTurnipPink2.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f067bc132_MugVulvalaRevolutionTurnipPink3.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/44d18122a_MugVulvalaRevolutionTurnipPink5.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/92ca6d2db_MugVulvalaRevolutionTurnipBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/54e26d033_MugVulvalaRevolutionTurnipBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/21dd0ab06_MugVulvalaRevolutionTurnipBlack4.jpg', color: 'black' },
       ];
     case 'navet_vulva_couple':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/39bd7ab34_WokeTurnipCoupleMugYellow1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/528f0eb5b_WokeTurnipCoupleMugGreen1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b18ef145e_WokeTurnipCoupleMugPink1.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7263f8eb0_ReadyfortheWokeTurnipCoupleMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/179a8b3c1_WokeTurnipCoupleMugYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/718553812_WokeTurnipCoupleMugYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3f6f095b9_WokeTurnipCoupleMugYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a2e503655_WokeTurnipCoupleMugGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/733a9bbf6_WokeTurnipCoupleMugGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/446f52bf7_WokeTurnipCoupleMugGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/474dd5b11_WokeTurnipCoupleMugPink1.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9abfea539_WokeTurnipCoupleMugPink2.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e600ad2b3_WokeTurnipCoupleMugPink3.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d6e469be6_WokeTurnipCoupleMugPink5.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/8947b311e_ReadyfortheWokeTurnipCoupleMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/035a33d06_WokeTurnipCoupleMugBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2142bcdc5_WokeTurnipCoupleMugBlack4.jpg', color: 'black' },
       ];
     case 'navet_woke_fr':
       return [
@@ -68,10 +86,19 @@ function sceneImages(name) {
       ];
     case 'navet_woke_en':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/39bd7ab34_WokeTurnipCoupleMugYellow1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/528f0eb5b_WokeTurnipCoupleMugGreen1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b18ef145e_WokeTurnipCoupleMugPink1.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7263f8eb0_ReadyfortheWokeTurnipCoupleMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/179a8b3c1_WokeTurnipCoupleMugYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/718553812_WokeTurnipCoupleMugYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3f6f095b9_WokeTurnipCoupleMugYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a2e503655_WokeTurnipCoupleMugGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/733a9bbf6_WokeTurnipCoupleMugGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/446f52bf7_WokeTurnipCoupleMugGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/474dd5b11_WokeTurnipCoupleMugPink1.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9abfea539_WokeTurnipCoupleMugPink2.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e600ad2b3_WokeTurnipCoupleMugPink3.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d6e469be6_WokeTurnipCoupleMugPink5.jpg', color: 'pink' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/8947b311e_ReadyfortheWokeTurnipCoupleMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/035a33d06_WokeTurnipCoupleMugBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2142bcdc5_WokeTurnipCoupleMugBlack4.jpg', color: 'black' },
       ];
 
     // ===== TOMATE FR =====
@@ -173,17 +200,35 @@ function sceneImages(name) {
     // ===== FRAISE / STRAWBERRY - Vulva EN Carmen+Rico (legacy) =====
     case 'fraise_vulva_couple':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5063ce2a7_MugVulvaRevolutionENCarmenRicoJaune1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9642ff555_MugVulvaRevolutionENCarmenRicoJaune2.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9b2be7ae2_MugVulvaRevolutionENCarmenRicoJaune3.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7df0ba0f1_MugVulvaRevolutionENCarmenRicoVert1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/daa5b007a_MugVulvaRevolutionENCarmenRicoVert2.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5f626e693_MugVulvaRevolutionENCarmenRicoVert4.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/bcfa466bf_MugVulvaRevolutionENCarmenRicoRose1.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/49a8e3620_MugVulvaRevolutionENCarmenRicoRose2.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e619501eb_MugVulvaRevolutionENCarmenRicoRose5.jpg', color: 'pink' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a4c8474cd_MugVulvaRevolutionENCarmenRicoNoir1.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/17849cc9d_MugVulvaRevolutionENCarmenRicoNoir2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2dcb2546b_MugRevolutionShakiraRicoYellowEN1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/97ed2eb65_MugRevolutionShakiraRicoYellowEN2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a17cbfb31_MugRevolutionShakiraRicoYellowEN3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/55103fd67_MugRevolutionShakiraRicoGreenEN1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b17792896_MugRevolutionShakiraRicoGreenEN2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9e33ff612_MugRevolutionShakiraRicoGreenEN4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/1b0ae48b1_MugRevolutionShakiraRicoRedEN1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3f7a47f59_MugRevolutionShakiraRicoRedEN2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/6b3b6879c_MugRevolutionShakiraRicoRedEN3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/74013528b_MugRevolutionShakiraRicoRedEN5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/cd32786bc_MugVulvaRevolutionShakiraRicoBlackEN1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a8c6bb1d1_MugRevolutionShakiraRicoBlackEN2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/91bcc545e_MugRevolutionShakiraRicoBlackEN4.jpg', color: 'black' },
+      ];
+    case 'fraise_amour_carmen_tonio':
+      return [
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/dcd8c5dbb_MugMakeLoveCarmenTonioYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/41c38c1e9_MugMakeLoveCarmenTonioYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/11e3ea7b0_MugMakeLoveCarmenTonioYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/98a109c43_MugMakeLoveCarmenTonioGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/139870176_MugMakeLoveCarmenTonioGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/47b0224e3_MugMakeLoveCarmenTonioGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/47462cdaf_MugMakeLoveCarmenTonioRed1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/bafd66d75_MugMakeLoveCarmenTonioRed2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/493f5fb36_MugMakeLoveCarmenTonioRed3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9871a9046_MugMakeLoveCarmenTonioRed5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/690b8811f_MugMakeLoveCarmenTonioBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/17bb1bc52_MugMakeLoveCarmenTonioBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/ee68eccc5_MugMakeLoveCarmenTonioBlack4.jpg', color: 'black' },
       ];
 
     // ===== FRAISE / STRAWBERRY - Faites l'Amour FR Carmen & Shakira =====
@@ -293,51 +338,85 @@ function sceneImages(name) {
     // ===== FRAISE / STRAWBERRY - Amour/Make Love EN =====
     case 'fraise_amour_rico_tonio':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/ae0e2bc27_MakeLoveRicoTonioMugYellow1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f8c5718a7_MakeLoveRicoTonioMugGreen1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/dae9b5819_MakeLoveRicoTonioMugRed1.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/8da955b3c_MakeLoveRicoTonioMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/ccb0315f7_MakeLoveRicoTonioMugYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/98c9126b5_MakeLoveRicoTonioMugYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/80ae2b0ab_MakeLoveRicoTonioMugYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9cdfb00a5_MakeLoveRicoTonioMugGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b5fd6ce7c_MakeLoveRicoTonioMugGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3365b097e_MakeLoveRicoTonioMugGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b63ef64cd_MakeLoveRicoTonioMugRed1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f24ecc793_MakeLoveRicoTonioMugRed2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/0daadf2a7_MakeLoveRicoTonioMugRed3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f859ad0d2_MakeLoveRicoTonioMugRed5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f8d79f319_MakeLoveRicoTonioMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/117bc8f54_MakeLoveRicoTonioMugBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/54a62e69f_MakeLoveRicoTonioMugBlack4.jpg', color: 'black' },
       ];
     case 'fraise_amour_carmen_shakira':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e9c38236c_MakeLoveCarmenShakiraMugYellow1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/c9af5f312_MakeLoveCarmenShakiraMugGreen1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9b6c40017_MakeLoveCarmenShakiraMugRed1.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e38c24dfd_MakeLoveCarmenShakiraMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/1b8cb291f_MakeLoveCarmenShakiraMugYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/c560040ab_MakeLoveCarmenShakiraMugYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/10d1597e8_MakeLoveCarmenShakiraMugYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7deb9bb52_MakeLoveCarmenShakiraMugGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/62c912c49_MakeLoveCarmenShakiraMugGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f5b308871_MakeLoveCarmenShakiraMugGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/51904d480_MakeLoveCarmenShakiraMugRed1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/52a82d9d7_MakeLoveCarmenShakiraMugRed2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/55a2b302f_MakeLoveCarmenShakiraMugRed3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/00ea4254d_MakeLoveCarmenShakiraMugRed5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/fe794eaa2_MakeLoveCarmenShakiraMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/acbcef2ef_MakeLoveCarmenShakiraMugBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/4cf7dad80_MakeLoveCarmenShakiraMugBlack4.jpg', color: 'black' },
       ];
     case 'fraise_amour_rico_shakira':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/6602c85b4_MakeLoveRicoShakiraMugYellow1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/6f2ce1ed1_MakeLoveRicoShakiraMugGreen1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/cbf5de240_MakeLoveRicoShakiraMugRed1.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/95a9f3e4b_MakeLoveRicoShakiraMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3eef9c184_MakeLoveRicoShakiraMugYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7fa2e504e_MakeLoveRicoShakiraMugYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/dfea4272f_MakeLoveRicoShakiraMugYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a4447e1ac_MakeLoveRicoShakiraMugGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b186320f9_MakeLoveRicoShakiraMugGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/929e0f7c7_MakeLoveRicoShakiraMugGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/45bcdb604_MakeLoveRicoShakiraMugRed1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/8c00c1790_MakeLoveRicoShakiraMugRed2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/095de8e55_MakeLoveRicoShakiraMugRed3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/07511c052_MakeLoveRicoShakiraMugRed5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5ff2e0275_MakeLoveRicoShakiraMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/af142b3e9_MakeLoveRicoShakiraMugBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/39a26a687_MakeLoveRicoShakiraMugBlack4.jpg', color: 'black' },
       ];
     case 'fraise_amour_lola_almarita':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d21ddad11_MakeLoveLolaAlmaritaMugYellow1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/21ac91367_MakeLoveLolaAlmaritaMugGreen1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/1b22eade5_MakeLoveLolaAlmaritaMugRed1.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/233f465eb_MakeLoveLolaAlmaritaMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/761cacf81_MakeLoveLolaAlmaritaMugYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9bfe4a322_MakeLoveLolaAlmaritaMugYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/1df0560ab_MakeLoveLolaAlmaritaMugYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/34a3483d3_MakeLoveLolaAlmaritaMugGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9464e1119_MakeLoveLolaAlmaritaMugGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2b561cb6c_MakeLoveLolaAlmaritaMugGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a26d63cb6_MakeLoveLolaAlmaritaMugRed1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/6ac6b4e3a_MakeLoveLolaAlmaritaMugRed2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a484d5505_MakeLoveLolaAlmaritaMugRed3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/581e0ab4b_MakeLoveLolaAlmaritaMugRed5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2bdf40e82_MakeLoveLolaAlmaritaMugBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/c38fd3ef3_MakeLoveLolaAlmaritaMugBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/5e608b6ed_MakeLoveLolaAlmaritaMugBlack4.jpg', color: 'black' },
       ];
 
     // ===== GRAINES / SEEDS =====
     case 'graines':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/248643ba4_SeedMugPepperYellow1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e2fe86f04_SeedMugPepperYellow2.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2d1f6a13a_SeedMugPepperYellow3.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d9fa7c26b_SeedMugPepperYellow4.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/20feed8f4_SeedMugPepperGreen1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/6c4b477da_SeedMugPepperGreen2.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/216ee4afd_SeedMugPepperGreen4.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e1e95ca55_SeedMugPepperRed1.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3ed33f30a_SeedMugPepperRed2.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/99a1736b4_SeedMugPepperRed3.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/090a20eaf_SeedMugPepperRed5.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7eeabcdc6_SeedMugPepperBlack1.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/15eb2841d_SeedMugPepperBlack2.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3bccae9d9_SeedMugPepperBlack3.jpg', color: 'black' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/c73a3175d_SeedMugPepperBlack4.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/fd4931632_SeedMugPepperYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d15d31f3f_SeedMugPepperYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9795fa82e_SeedMugPepperYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/8a001f621_SeedMugPepperGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/9c84e3617_SeedMugPepperGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/43413c34d_SeedMugPepperGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/44b89b2ff_SeedMugPepperRed1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/97a8e2311_SeedMugPepperRed2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3549dcd60_SeedMugPepperRed3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/c1e6bf3f5_SeedMugPepperRed5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/f8606ba9a_SeedMugPepperBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/919b00859_SeedMugPepperBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e5684199f_SeedMugPepperBlack4.jpg', color: 'black' },
       ];
 
     // ===== NIÇOISE =====
@@ -438,7 +517,7 @@ const MATCH_RULES = [
   { keywords: ['make love', 'tomatoe', 'mug'], col: 'vulva-la-revolution', sort: 2, scene: 'tomate_amour' },
   { keywords: ['vulva', 'carmen', 'tonio', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 3, scene: 'fraise_vulva_couple' },
   { keywords: ['vulva', 'shakira', 'rico', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 4, scene: 'fraise_vulva_couple' },
-  { keywords: ['make love', 'carmen', 'tonio', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 5, scene: 'fraise_amour_rico_tonio' },
+  { keywords: ['make love', 'carmen', 'tonio', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 5, scene: 'fraise_amour_carmen_tonio' },
   { keywords: ['make love', 'rico', 'shakira', 'strawberry', 'mug'], notKeywords: ['poster'], col: 'vulva-la-revolution', sort: 6, scene: 'fraise_amour_rico_shakira' },
   { keywords: ['make love', 'carmen', 'shakira', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 7, scene: 'fraise_amour_carmen_shakira' },
   { keywords: ['make love', 'rico', 'tonio', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 8, scene: 'fraise_amour_rico_tonio' },
