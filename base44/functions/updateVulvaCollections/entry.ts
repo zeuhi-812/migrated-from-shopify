@@ -323,10 +323,21 @@ function sceneImages(name) {
     // ===== GRAINES / SEEDS =====
     case 'graines':
       return [
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a109fe85a_SeedMugPepperYellow1.jpg', color: 'yellow' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e4edb7142_SeedMugPepperGreen1.jpg', color: 'green' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/99ac83b8e_SeedMugPepperRed1.jpg', color: 'red' },
-        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/13b5a5960_SeedMugPepperBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/248643ba4_SeedMugPepperYellow1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e2fe86f04_SeedMugPepperYellow2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2d1f6a13a_SeedMugPepperYellow3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/d9fa7c26b_SeedMugPepperYellow4.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/20feed8f4_SeedMugPepperGreen1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/6c4b477da_SeedMugPepperGreen2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/216ee4afd_SeedMugPepperGreen4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/e1e95ca55_SeedMugPepperRed1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3ed33f30a_SeedMugPepperRed2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/99a1736b4_SeedMugPepperRed3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/090a20eaf_SeedMugPepperRed5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7eeabcdc6_SeedMugPepperBlack1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/15eb2841d_SeedMugPepperBlack2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/3bccae9d9_SeedMugPepperBlack3.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/c73a3175d_SeedMugPepperBlack4.jpg', color: 'black' },
       ];
 
     // ===== NIÇOISE =====
@@ -433,9 +444,8 @@ const MATCH_RULES = [
   { keywords: ['make love', 'rico', 'tonio', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 8, scene: 'fraise_amour_rico_tonio' },
   { keywords: ['make love', 'lola', 'almarita', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 9, scene: 'fraise_amour_lola_almarita' },
   { keywords: ['seeds', 'pepper', 'mug'], notKeywords: ['poster'], col: 'vulva-la-revolution', sort: 10, scene: 'graines' },
-  { keywords: ['vulva', 'turnip', 'couple', 'mug'], col: 'vulva-la-revolution', sort: 11, scene: 'navet_vulva_couple' },
-  { keywords: ['vulva', 'turnip', 'mug'], notKeywords: ['couple', 'ready', 'woke'], col: 'vulva-la-revolution', sort: 12, scene: 'navet_vulva_solo' },
-  { keywords: ['ready', 'woke', 'turnip', 'mug'], col: 'vulva-la-revolution', sort: 13, scene: 'navet_woke_en' },
+  { keywords: ['vulva', 'turnip', 'mug'], notKeywords: ['couple', 'ready', 'woke'], col: 'vulva-la-revolution', sort: 11, scene: 'navet_vulva_solo' },
+  { keywords: ['ready', 'woke', 'turnip', 'mug'], col: 'vulva-la-revolution', sort: 12, scene: 'navet_woke_en' },
 
   // ===== POSTER FR (posters-vulva-la-revolution-fr) =====
   { keywords: ['vulva', 'tomate', 'poster'], notKeywords: ['navet', 'fraise', 'turnip', 'couple'], col: 'posters-vulva-la-revolution-fr', sort: 1 },
