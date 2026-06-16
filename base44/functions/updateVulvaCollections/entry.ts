@@ -214,6 +214,22 @@ function sceneImages(name) {
         { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a4c18dab6_MugRevolutionCarmenTonioNoir2.jpg', color: 'black' },
         { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/feb7bad8e_MugRevolutionCarmenTonioNoir4.jpg', color: 'black' },
       ];
+    case 'fraise_vulva_shakira_rico':
+      return [
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/157b74212_MugRevolutionShakiraRicoJaune1.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/b0e9c95ac_MugRevolutionShakiraRicoJaune2.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/64673a36c_MugRevolutionShakiraRicoJaune3.jpg', color: 'yellow' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/fc0137aad_MugRevolutionShakiraRicoVert1.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/43dab8e38_MugRevolutionShakiraRicoVert2.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/42b27ba74_MugRevolutionShakiraRicoVert4.jpg', color: 'green' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/1c8f6034d_MugRevolutionShakiraRicoRouge1.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/4d1c3e76b_MugRevolutionShakiraRicoRouge2.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/c52dfba51_MugRevolutionShakiraRicoRouge3.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/2f1069fe0_MugRevolutionShakiraRicoRouge5.jpg', color: 'red' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/771d7efcd_MugRevolutionShakiraRicoNoir1.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/7fa8706fb_MugRevolutionShakiraRicoNoir2.jpg', color: 'black' },
+        { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/a49c4ab04_MugRevolutionShakiraRicoNoir4.jpg', color: 'black' },
+      ];
     case 'fraise_amour_carmen_tonio':
       return [
         { url: 'https://media.base44.com/images/public/69f3591f0433b9e03564517e/dcd8c5dbb_MugMakeLoveCarmenTonioYellow1.jpg', color: 'yellow' },
@@ -516,7 +532,7 @@ const MATCH_RULES = [
   { keywords: ['vulva', 'tomatoe', 'mug'], notKeywords: ['strawberr', 'turnip', 'seeds', 'woke', 'carmen', 'shakira'], col: 'vulva-la-revolution', sort: 1, scene: 'tomate_vulva' },
   { keywords: ['make love', 'tomatoe', 'mug'], col: 'vulva-la-revolution', sort: 2, scene: 'tomate_amour' },
   { keywords: ['vulva', 'carmen', 'tonio', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 3, scene: 'fraise_vulva_couple' },
-  { keywords: ['vulva', 'shakira', 'rico', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 4, scene: 'fraise_vulva_couple' },
+  { keywords: ['vulva', 'shakira', 'rico', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 4, scene: 'fraise_vulva_shakira_rico' },
   { keywords: ['make love', 'carmen', 'tonio', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 5, scene: 'fraise_amour_carmen_tonio' },
   { keywords: ['make love', 'rico', 'shakira', 'strawberry', 'mug'], notKeywords: ['poster'], col: 'vulva-la-revolution', sort: 6, scene: 'fraise_amour_rico_shakira' },
   { keywords: ['make love', 'carmen', 'shakira', 'strawberry', 'mug'], col: 'vulva-la-revolution', sort: 7, scene: 'fraise_amour_carmen_shakira' },
