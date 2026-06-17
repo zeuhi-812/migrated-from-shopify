@@ -4,7 +4,7 @@ import Stripe from 'npm:stripe@14.21.0';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const { sessionId, successUrl, cancelUrl, customerInfo, promoCode, discountedTotal } = await req.json();
+    const { sessionId, successUrl, cancelUrl, customerInfo, promoCode, discountedTotal, shippingCost } = await req.json();
 
     if (!sessionId) {
       return Response.json({ error: 'sessionId requis' }, { status: 400 });
@@ -21,13 +21,15 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Panier vide' }, { status: 400 });
     }
 
-    // Determine unit amounts (apply promo discount proportionally if provided)
-    const originalTotal = items.reduce((sum, i) => sum + (i.price || 0) * (i.quantity || 1), 0);
-    const discountRatio = discountedTotal && originalTotal > 0
-      ? discountedTotal / originalTotal
+    // Product total HT (prix produits sans livraison ni TVA)
+    const productTotalHT = items.reduce((sum, i) => sum + (i.price || 0) * (i.quantity || 1), 0);
+
+    // Determine discount ratio if promo applied
+    const discountRatio = discountedTotal && productTotalHT > 0
+      ? discountedTotal / productTotalHT
       : 1;
 
-    // Build Stripe line items
+    // Build Stripe line items (produits — HT, la TVA sera ajoutée)
     const lineItems = items.map(item => ({
       price_data: {
         currency: 'eur',
@@ -45,6 +47,42 @@ Deno.serve(async (req) => {
       quantity: item.quantity || 1,
     }));
 
+    // Livraison (frais réels Gelato ou grille manuelle)
+    const shippingAmount = shippingCost != null ? shippingCost : 0;
+    if (shippingAmount > 0) {
+      lineItems.push({
+        price_data: {
+          currency: 'eur',
+          product_data: {
+            name: 'Frais de livraison',
+            images: [],
+          },
+          unit_amount: Math.round(shippingAmount * 100),
+        },
+        quantity: 1,
+      });
+    }
+
+    // Calcul TVA 20% incluse dans le prix TTC
+    // TVA = (HT total) × 0.20
+    const vatRate = 20;
+    const discountedProductHT = productTotalHT * discountRatio;
+    const totalHT = discountedProductHT + shippingAmount;
+    const tvaAmount = Math.round(totalHT * (vatRate / 100) * 100) / 100;
+
+    // Ajouter la TVA comme ligne séparée
+    lineItems.push({
+      price_data: {
+        currency: 'eur',
+        product_data: {
+          name: `TVA (${vatRate}%) incluse — reversée par Gelato`,
+          images: [],
+        },
+        unit_amount: Math.round(tvaAmount * 100),
+      },
+      quantity: 1,
+    });
+
     // Build customer pre-fill if info provided
     const customerEmail = customerInfo?.email || undefined;
 
@@ -58,6 +96,9 @@ Deno.serve(async (req) => {
         cartSessionId: sessionId,
         promoCode: promoCode || '',
         customerPhone: customerInfo?.phone || '',
+        shippingCost: String(shippingAmount),
+        vatAmount: String(tvaAmount),
+        vatRate: String(vatRate),
         // Shipping address stored in metadata for Gelato webhook
         shippingLine1: customerInfo?.shippingLine1 || '',
         shippingLine2: customerInfo?.shippingLine2 || '',

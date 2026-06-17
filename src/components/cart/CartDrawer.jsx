@@ -49,6 +49,7 @@ export default function CartDrawer({ open, onClose }) {
         {step === 'form' ? (
           <CheckoutForm
             totalPrice={totalPrice}
+            cartItems={items}
             onBack={() => setStep('cart')}
             onSubmit={handleCheckoutSubmit}
             loading={loading}

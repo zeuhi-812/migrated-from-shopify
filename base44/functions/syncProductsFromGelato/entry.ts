@@ -7,11 +7,6 @@ const PRICES = {
   poster_a3: 13.80,
 };
 
-const SHIPPING = {
-  mug: 4.50,
-  poster: 3.50,
-};
-
 function normalizeTitle(title) {
   return (title || '')
     .toLowerCase()
@@ -32,12 +27,12 @@ function detectProductType(title, variants) {
 
 function getPriceForVariant(variantTitle, productType) {
   const vt = (variantTitle || '').toLowerCase();
-  if (productType === 'mug') return PRICES.mug + SHIPPING.mug;
+  if (productType === 'mug') return PRICES.mug;
   if (productType === 'poster') {
-    if (vt.includes('13x18') || vt.includes('5x7')) return PRICES.poster_13x18 + SHIPPING.poster;
-    if (vt.includes('21x29') || vt.includes('8x12')) return PRICES.poster_21x30 + SHIPPING.poster;
-    if (vt.includes('a3') || vt.includes('29.7 x 42') || vt.includes('29,7 x 42')) return PRICES.poster_a3 + SHIPPING.poster;
-    return PRICES.poster_13x18 + SHIPPING.poster;
+    if (vt.includes('13x18') || vt.includes('5x7')) return PRICES.poster_13x18;
+    if (vt.includes('21x29') || vt.includes('8x12')) return PRICES.poster_21x30;
+    if (vt.includes('a3') || vt.includes('29.7 x 42') || vt.includes('29,7 x 42')) return PRICES.poster_a3;
+    return PRICES.poster_13x18;
   }
   return 0;
 }

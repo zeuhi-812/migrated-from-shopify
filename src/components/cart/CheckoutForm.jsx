@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ChevronLeft, Tag, Check } from 'lucide-react';
+import { ChevronLeft, Tag, Check, Loader2, Truck } from 'lucide-react';
+import { gelatoShippingQuote } from '@/functions/gelatoShippingQuote';
+
+const VAT_RATE = 0.20;
 
 const PROMO_CODES = {
   ZEUHIFIRST: { discount: 0.10, label: '-10% (première commande)' },
 };
 
-export default function CheckoutForm({ totalPrice, onBack, onSubmit, loading }) {
+export default function CheckoutForm({ totalPrice, onBack, onSubmit, loading, cartItems }) {
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -28,6 +31,9 @@ export default function CheckoutForm({ totalPrice, onBack, onSubmit, loading }) 
   const [promoCode, setPromoCode] = useState('');
   const [appliedPromo, setAppliedPromo] = useState(null);
   const [promoError, setPromoError] = useState('');
+  const [quoteLoading, setQuoteLoading] = useState(false);
+  const [quoteData, setQuoteData] = useState(null);
+  const [quoteError, setQuoteError] = useState('');
 
   const set = (field, value) => setForm(f => ({ ...f, [field]: value }));
 
@@ -42,13 +48,58 @@ export default function CheckoutForm({ totalPrice, onBack, onSubmit, loading }) 
     }
   };
 
-  const discountedTotal = appliedPromo
+  const addressComplete = form.firstName && form.lastName && form.email
+    && form.shippingLine1 && form.shippingCity && form.shippingPostCode && form.shippingCountry;
+
+  const fetchShippingQuote = async () => {
+    if (!addressComplete) return;
+    setQuoteLoading(true);
+    setQuoteError('');
+    try {
+      const res = await gelatoShippingQuote({
+        items: cartItems.map(item => ({
+          gelatoVariantId: item.gelatoVariantId,
+          variantTitle: item.variantTitle,
+          quantity: item.quantity || 1,
+          title: item.title || '',
+        })),
+        shippingAddress: {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          line1: form.shippingLine1,
+          line2: form.shippingLine2,
+          city: form.shippingCity,
+          postCode: form.shippingPostCode,
+          country: form.shippingCountry,
+        },
+      });
+      if (res.data?.error) {
+        setQuoteError(res.data.error);
+      } else {
+        setQuoteData(res.data);
+      }
+    } catch (err) {
+      setQuoteError('Impossible de calculer la livraison');
+    }
+    setQuoteLoading(false);
+  };
+
+  const discountedProductHT = appliedPromo
     ? totalPrice * (1 - appliedPromo.discount)
     : totalPrice;
+  const shippingHT = quoteData?.shippingCost || 0;
+  const totalHT = discountedProductHT + shippingHT;
+  const tvaAmount = totalHT * VAT_RATE;
+  const totalTTC = totalHT + tvaAmount;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ form, appliedPromo, discountedTotal });
+    if (!quoteData && !quoteError) {
+      fetchShippingQuote();
+      return;
+    }
+    onSubmit({ form, appliedPromo, discountedTotal: discountedProductHT, shippingCost: shippingHT });
   };
 
   return (
@@ -151,27 +202,60 @@ export default function CheckoutForm({ totalPrice, onBack, onSubmit, loading }) 
         </section>
       </div>
 
+      {/* Calcul livraison */}
+      {addressComplete && !quoteData && !quoteLoading && (
+        <button
+          type="button"
+          onClick={fetchShippingQuote}
+          className="flex items-center justify-center gap-2 w-full py-2 text-sm text-primary border border-primary/30 rounded-md hover:bg-primary/5 transition-colors"
+        >
+          <Truck className="w-4 h-4" />
+          Calculer les frais de livraison
+        </button>
+      )}
+      {quoteLoading && (
+        <div className="flex items-center justify-center gap-2 py-2 text-sm text-muted-foreground">
+          <Loader2 className="w-4 h-4 animate-spin" />
+          Calcul de la livraison en cours...
+        </div>
+      )}
+      {quoteError && (
+        <p className="text-xs text-destructive text-center">{quoteError}</p>
+      )}
+
       {/* Summary + submit */}
-      <div className="border-t border-border pt-4 mt-4 space-y-3">
-        {appliedPromo && (
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Sous-total</span>
-            <span>{totalPrice.toFixed(2).replace('.', ',')} €</span>
-          </div>
-        )}
+      <div className="border-t border-border pt-4 mt-4 space-y-2">
+        <div className="flex justify-between text-sm">
+          <span className="text-muted-foreground">Sous-total produits</span>
+          <span>{totalPrice.toFixed(2).replace('.', ',')} €</span>
+        </div>
         {appliedPromo && (
           <div className="flex justify-between text-sm text-green-600">
             <span>Réduction ({appliedPromo.code})</span>
             <span>-{(totalPrice * appliedPromo.discount).toFixed(2).replace('.', ',')} €</span>
           </div>
         )}
-        <div className="flex justify-between items-center">
-          <span className="font-medium">Total</span>
-          <span className="text-xl font-bold text-primary">{discountedTotal.toFixed(2).replace('.', ',')} €</span>
+        {quoteData && (
+          <div className="flex justify-between text-sm">
+            <span className="text-muted-foreground">
+              Livraison{quoteData.method ? ` — ${quoteData.method}` : ''}
+              {quoteData.isEstimate && ' (estimé)'}
+            </span>
+            <span>{shippingHT.toFixed(2).replace('.', ',')} €</span>
+          </div>
+        )}
+        {quoteData && (
+          <div className="flex justify-between text-sm">
+            <span className="text-muted-foreground">TVA (20%) — reversée par Gelato</span>
+            <span>{tvaAmount.toFixed(2).replace('.', ',')} €</span>
+          </div>
+        )}
+        <div className="flex justify-between items-center pt-2 border-t border-border">
+          <span className="font-medium">Total TTC</span>
+          <span className="text-xl font-bold text-primary">{totalTTC.toFixed(2).replace('.', ',')} €</span>
         </div>
-        <p className="text-xs text-muted-foreground">Livraison calculée à l'étape suivante</p>
         <Button type="submit" disabled={loading} size="lg" className="w-full font-semibold">
-          {loading ? 'Traitement...' : 'Confirmer et payer'}
+          {loading ? 'Traitement...' : quoteData ? 'Confirmer et payer' : 'Calculer et payer'}
         </Button>
       </div>
     </form>
