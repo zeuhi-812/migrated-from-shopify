@@ -26,6 +26,7 @@ export default function Footer() {
               <Link to="/collection/mugs-heart-of-protest" className="block font-mono text-sm hover:text-primary transition-colors">Mugs "Heart of Protest"</Link>
               <Link to="/collection/posters-heart-of-protest" className="block font-mono text-sm hover:text-primary transition-colors">Posters "Heart of Protest"</Link>
               <Link to="/a-propos" className="block font-mono text-sm hover:text-primary transition-colors">À propos</Link>
+              <Link to="/mentions-legales" className="block font-mono text-sm hover:text-primary transition-colors">Mentions légales</Link>
             </div>
           </div>
           <div>

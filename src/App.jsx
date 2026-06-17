@@ -15,6 +15,7 @@ import CollectionPage from '@/pages/CollectionPage';
 import ProductDetail from '@/pages/ProductDetail';
 import About from '@/pages/About';
 import OrderConfirmed from '@/pages/OrderConfirmed';
+import Legal from '@/pages/Legal';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -45,6 +46,7 @@ const AuthenticatedApp = () => {
         <Route path="/produit/:handle" element={<ProductDetail />} />
         <Route path="/a-propos" element={<About />} />
         <Route path="/commande-confirmee" element={<OrderConfirmed />} />
+        <Route path="/mentions-legales" element={<Legal />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

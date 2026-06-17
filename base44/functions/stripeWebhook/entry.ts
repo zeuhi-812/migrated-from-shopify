@@ -96,7 +96,44 @@ Deno.serve(async (req) => {
 
       // Clear the cart
       const cartItems = await base44.asServiceRole.entities.CartItem.filter({ sessionId: cartSessionId });
+      const cartSummary = cartItems.map(i => `- ${i.title}${i.variantTitle ? ` (${i.variantTitle})` : ''} ×${i.quantity} — ${(i.price * (i.quantity || 1)).toFixed(2).replace('.', ',')}€`).join('\n');
       await Promise.all(cartItems.map(i => base44.asServiceRole.entities.CartItem.delete(i.id)));
+
+      // Envoyer une notification email à Zeu Hi
+      const orderTotal = session.amount_total ? (session.amount_total / 100).toFixed(2) : 'N/A';
+      const now = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
+      const emailBody = `Nouvelle commande Pancartiviste ! 🚀
+
+Date : ${now}
+Client : ${customerName}
+Email : ${customerEmail}
+Montant : ${orderTotal}€ ${session.currency?.toUpperCase() || 'EUR'}
+
+Adresse de livraison :
+${[
+  shippingAddress?.line1 || '',
+  shippingAddress?.line2 || '',
+  `${shippingAddress?.postal_code || ''} ${shippingAddress?.city || ''}`.trim(),
+  shippingAddress?.country || 'FR'
+].filter(Boolean).join('\n')}
+
+Produits commandés :
+${cartSummary || 'Non disponible'}
+
+Commande Gelato : ${orderItems.length > 0 ? '✓ transmise' : '⚠ à vérifier'}
+ID Stripe : ${session.id}`;
+
+      try {
+        await base44.integrations.Core.SendEmail({
+          to: 'zeuhi@pancartiviste.com',
+          subject: `🛒 Nouvelle commande — ${customerName} (${orderTotal}€)`,
+          body: emailBody,
+          from_name: 'Pancartiviste Shop',
+        });
+        console.log('Order notification sent to zeuhi@pancartiviste.com');
+      } catch (emailErr) {
+        console.error('Failed to send order notification:', emailErr.message);
+      }
     }
 
     return Response.json({ received: true });
