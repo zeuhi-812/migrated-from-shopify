@@ -48,7 +48,7 @@ Deno.serve(async (req) => {
     }));
 
     // Livraison (frais réels Gelato ou grille manuelle)
-    const shippingAmount = shippingCost != null ? shippingCost : 0;
+    const shippingAmount = 5.86; // 5.86 € de frais de port fixes;
     if (shippingAmount > 0) {
       lineItems.push({
         price_data: {
