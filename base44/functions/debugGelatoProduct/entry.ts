@@ -22,9 +22,22 @@ Deno.serve(async (req) => {
     const detailRes = await fetch(`https://ecommerce.gelatoapis.com/v1/stores/${STORE_ID}/products/${productId}`, { headers });
     const detail = await detailRes.json();
 
+    // Get shipping profiles WITH zones for the current store
+    const r2 = await fetch(`https://ecommerce.gelatoapis.com/v1/stores/${STORE_ID}/shipping-profiles?limit=3&expand[]=zones`, { headers });
+    const d2 = await r2.json();
+
+    // Get product prices from catalog API (includes shipping info)
+    const r4 = await fetch('https://product.gelatoapis.com/v3/products/mug_product_msz_11-oz_mmat_ceramic-green_cl_4-0/prices?country=FR&currency=EUR', { headers });
+    const d4 = await r4.json();
+
+    // Get product prices for a poster
+    const r5 = await fetch('https://product.gelatoapis.com/v3/products/fine-art-print_product_fap-210-290_pf_pt-290-200_ver_po_sl/prices?country=FR&currency=EUR', { headers });
+    const d5 = await r5.json();
+
     return Response.json({
-      listSample: products[0],
-      detail,
+      shippingProfilesWithZones: { status: r2.status, firstProfile: d2?.profiles?.[0] || d2 },
+      mugPrices: { status: r4.status, data: d4 },
+      posterPrices: { status: r5.status, data: d5 },
     });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
