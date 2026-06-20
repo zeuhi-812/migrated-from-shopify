@@ -70,7 +70,6 @@ Deno.serve(async (req) => {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
-      automatic_tax: { enabled: true },
       success_url: successUrl || `${Deno.env.get('STORE_URL') || 'https://example.com'}/commande-confirmee?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: cancelUrl || `${Deno.env.get('STORE_URL') || 'https://example.com'}/panier`,
       metadata: {

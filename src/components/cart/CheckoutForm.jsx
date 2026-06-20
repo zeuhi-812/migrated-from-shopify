@@ -241,10 +241,10 @@ export default function CheckoutForm({ totalPrice, onBack, onSubmit, loading, ca
           </div>
         )}
         <div className="flex justify-between items-center pt-2 border-t border-border">
-          <span className="font-medium">Sous-total HT</span>
+          <span className="font-medium">Total TTC</span>
           <span className="text-xl font-bold text-primary">{totalHT.toFixed(2).replace('.', ',')} €</span>
         </div>
-        <p className="text-xs text-muted-foreground text-center italic">TVA calculée automatiquement par Stripe à la validation</p>
+        <p className="text-xs text-muted-foreground text-center italic">TVA incluse dans le prix des produits</p>
         <Button type="submit" disabled={loading} size="lg" className="w-full font-semibold">
           {loading ? 'Traitement...' : quoteData ? 'Confirmer et payer' : 'Calculer et payer'}
         </Button>
