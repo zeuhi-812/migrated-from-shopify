@@ -63,26 +63,6 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Calcul TVA 20% incluse dans le prix TTC
-    // TVA = (HT total) × 0.20
-    const vatRate = 20;
-    const discountedProductHT = productTotalHT * discountRatio;
-    const totalHT = discountedProductHT + shippingAmount;
-    const tvaAmount = Math.round(totalHT * (vatRate / 100) * 100) / 100;
-
-    // Ajouter la TVA comme ligne séparée
-    lineItems.push({
-      price_data: {
-        currency: 'eur',
-        product_data: {
-          name: `TVA (${vatRate}%) incluse — reversée par Gelato`,
-          images: [],
-        },
-        unit_amount: Math.round(tvaAmount * 100),
-      },
-      quantity: 1,
-    });
-
     // Build customer pre-fill if info provided
     const customerEmail = customerInfo?.email || undefined;
 
@@ -90,6 +70,7 @@ Deno.serve(async (req) => {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
+      automatic_tax: { enabled: true },
       success_url: successUrl || `${Deno.env.get('STORE_URL') || 'https://example.com'}/commande-confirmee?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: cancelUrl || `${Deno.env.get('STORE_URL') || 'https://example.com'}/panier`,
       metadata: {
@@ -97,8 +78,6 @@ Deno.serve(async (req) => {
         promoCode: promoCode || '',
         customerPhone: customerInfo?.phone || '',
         shippingCost: String(shippingAmount),
-        vatAmount: String(tvaAmount),
-        vatRate: String(vatRate),
         // Shipping address stored in metadata for Gelato webhook
         shippingLine1: customerInfo?.shippingLine1 || '',
         shippingLine2: customerInfo?.shippingLine2 || '',

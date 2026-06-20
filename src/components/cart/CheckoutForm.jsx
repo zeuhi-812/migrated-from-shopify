@@ -4,8 +4,6 @@ import { Input } from '@/components/ui/input';
 import { ChevronLeft, Tag, Check, Loader2, Truck } from 'lucide-react';
 import { gelatoShippingQuote } from '@/functions/gelatoShippingQuote';
 
-const VAT_RATE = 0.20;
-
 const PROMO_CODES = {
   ZEUHIFIRST: { discount: 0.10, label: '-10% (première commande)' },
 };
@@ -90,8 +88,6 @@ export default function CheckoutForm({ totalPrice, onBack, onSubmit, loading, ca
     : totalPrice;
   const shippingHT = quoteData?.shippingCost || 0;
   const totalHT = discountedProductHT + shippingHT;
-  const tvaAmount = totalHT * VAT_RATE;
-  const totalTTC = totalHT + tvaAmount;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -244,16 +240,11 @@ export default function CheckoutForm({ totalPrice, onBack, onSubmit, loading, ca
             <span>{shippingHT.toFixed(2).replace('.', ',')} €</span>
           </div>
         )}
-        {quoteData && (
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">TVA (20%) — reversée par Gelato</span>
-            <span>{tvaAmount.toFixed(2).replace('.', ',')} €</span>
-          </div>
-        )}
         <div className="flex justify-between items-center pt-2 border-t border-border">
-          <span className="font-medium">Total TTC</span>
-          <span className="text-xl font-bold text-primary">{totalTTC.toFixed(2).replace('.', ',')} €</span>
+          <span className="font-medium">Sous-total HT</span>
+          <span className="text-xl font-bold text-primary">{totalHT.toFixed(2).replace('.', ',')} €</span>
         </div>
+        <p className="text-xs text-muted-foreground text-center italic">TVA calculée automatiquement par Stripe à la validation</p>
         <Button type="submit" disabled={loading} size="lg" className="w-full font-semibold">
           {loading ? 'Traitement...' : quoteData ? 'Confirmer et payer' : 'Calculer et payer'}
         </Button>
